@@ -9,9 +9,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+Object.assign(global, {
+  mount,
+  jasmineEnzyme,
+  React
+});
+
 beforeEach(() => {
   jasmineEnzyme();
-})
+});
 
 // function to require all modules for a given context
 let requireAll = requireContext => {

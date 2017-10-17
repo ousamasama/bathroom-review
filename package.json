@@ -1,6 +1,9 @@
 {
   "name": "bathroom-review",
   "private": true,
+  "scripts": {
+    "start": "./bin/webpack-dev-server"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "babel-preset-react": "^6.24.1",
@@ -23,6 +26,7 @@
     "phantomjs-prebuilt": "^2.1.15",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.0.0",
-    "webpack-dev-server": "^2.9.2"
+    "webpack-dev-server": "^2.9.2",
+    "whatwg-fetch": "^2.0.3"
   }
 }
