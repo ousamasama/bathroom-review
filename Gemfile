@@ -32,6 +32,8 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'webpacker'
+
 group :test do
   gem 'coveralls', require: false
 end
