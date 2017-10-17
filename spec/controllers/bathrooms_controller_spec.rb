@@ -7,10 +7,11 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
     it "retrieves bathroom data" do
       get :index
       returned_json = JSON.parse(response.body)
+      first = returned_json["data"][0]
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
-      expect(returned_json["data"][0]["establishment"]).to eq "McDonalds"
+      expect(first["establishment"]).to eq "McDonalds"
 
     end
   end
