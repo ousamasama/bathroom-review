@@ -7,27 +7,27 @@ class IndexContainer extends Component {
     this.state = {
       address: ''
     }
-    this.handleSearch = this.handleSearch.bind(this)
+    this.handleFormChange = this.handleFormChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleSearch(event) {
+  handleFormChange(event) {
     this.setState({ address: event.target.value })
   }
 
   handleClick() {
-
+    // fetch based on adress.state
   }
 
   render() {
     return(
       <div>
-        <a class="button large" onClick={this.handleClick}>Search</a>
         <SearchBar
           address={this.state.address}
-          handlerFunction={this.handleSearch}
+          handlerFunction={this.handleFormChange}
+          handleClick={this.handleClick}
         />
-        <a class="button expanded" href="#">Such Expand</a>
+      <a className="button expanded" href="#">Such Expand</a>
       </div>
     )
   }
