@@ -31,16 +31,14 @@ describe('IndexContainer', () => {
   });
   describe('adds BathroomTile to page', () => {
     it('should add a tile for a bathroom', () => {
-      let data = {
-        bathrooms: [
-          {
-            establishment: 'McDonalds',
-            address: '123 Fake St.'
-          }
-        ]
-      }
-      wrapper.setState({ address: data.bathrooms})
-      expect(wrapper).toHaveState('bathrooms': data.bathrooms)
+      let bathrooms = [
+        {
+          establishment: 'McDonalds',
+          address: '123 Fake St.'
+        }
+      ]
+      wrapper.setState({ bathrooms: bathrooms })
+      expect(wrapper).toHaveState('bathrooms': bathrooms)
       expect(wrapper.find(BathroomTile)).toBePresent()
     })
   })
