@@ -32,8 +32,8 @@ class IndexContainer extends Component {
       bathrooms = this.state.bathrooms.map(bathroom => {
         return(
             <BathroomTile
-              bathroom={bathroom}
               key={bathroom.id}
+              bathroom={bathroom}
             />
           )
         }
