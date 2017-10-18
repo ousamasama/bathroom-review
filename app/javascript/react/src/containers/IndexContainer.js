@@ -48,7 +48,6 @@ class IndexContainer extends Component {
           handleClick={this.handleClick}
         />
         {bathrooms}
-      <a className="button expanded" href="#">Add New Bathroom</a>
       </div>
     )
   }
