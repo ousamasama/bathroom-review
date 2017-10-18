@@ -3,8 +3,8 @@ import React from 'react'
 const SearchBar = props => {
   return(
     <div>
-      <a className="button large" onClick={props.handleClick}>Search</a>
-      <label>Address:
+      <a className="button large" onClick={props.handleClick} id='submit'>Search</a>
+      <label>
         <input
           name='address'
           type='text'

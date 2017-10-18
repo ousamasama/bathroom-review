@@ -1,7 +1,3 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import jasmineEnzyme from 'jasmine-enzyme';
-
 import NavBar from '../../src/components/NavBar';
 
 describe('NavBar', () => {
