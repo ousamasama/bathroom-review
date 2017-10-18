@@ -3,10 +3,14 @@ import { Link } from 'react-router';
 
 const NavBar = props => {
   return(
-    <div className="top-bar">
-      <li className="page-title">Home</li>
-      {props.children}
-    </div>
+    <nav className="top-bar">
+      <section className="top-bar-center">
+        <ul className="right">
+          <Link to='/users/sign_up'>Sign In / Sign Up</Link>
+          {props.children}
+        </ul>
+      </section>
+    </nav>
   )
 }
 
