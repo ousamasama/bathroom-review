@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
     "prop-types": "^15.6.0",
@@ -26,6 +28,7 @@
     "phantomjs-prebuilt": "^2.1.15",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.0.0",
+    "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.2",
     "whatwg-fetch": "^2.0.3"
   }
