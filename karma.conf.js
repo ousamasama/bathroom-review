@@ -15,7 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/javascript/react/test/testHelper.js'
+      // entry file for Webpack
+      'app/javascript/react/test/testHelper.js',
+      // use Babel polyfill to emulate a full ES6 environment in PhantomJS
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      // use whatwg-fetch polyfill
+      'node_modules/whatwg-fetch/fetch.js'
     ],
 
 

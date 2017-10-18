@@ -1,10 +1,17 @@
 import React from 'react';
-// import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import NavBar from './components/NavBar'
+import IndexContainer from './containers/IndexContainer'
+
 
 
 const App = props => {
   return(
-    <h1>Hello World Testing is working!</h1>
+    <Router history={browserHistory}>
+      <Route path='/' component={NavBar}>
+        <IndexRoute component={IndexContainer} />
+      </Route>
+    </Router>
   )
 }
 

@@ -1,33 +1,53 @@
 import React, { Component } from 'react'
+import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 
 class IndexContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      address: ''
+      address: '',
+      bathrooms: []
     }
-    this.handleSearch = this.handleSearch.bind(this)
+    this.handleFormChange = this.handleFormChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleSearch(event) {
+  handleFormChange(event) {
     this.setState({ address: event.target.value })
   }
 
   handleClick() {
-
+    fetch('/api/v1/bathrooms')
+    .then(response => response.json())
+    .then(data => this.setState({
+      bathrooms: data
+    }))
   }
 
   render() {
+    let bathrooms;
+    if (this.state.bathrooms.length !== 0) {
+      bathrooms = this.state.bathrooms.map(bathroom => {
+        return(
+            <BathroomTile
+              bathroom={bathroom}
+              key={bathroom.id}
+            />
+          )
+        }
+      )
+    }
+
     return(
       <div>
-        <a class="button large" onClick={this.handleClick}>Search</a>
         <SearchBar
           address={this.state.address}
-          handlerFunction={this.handleSearch}
+          handlerFunction={this.handleFormChange}
+          handleClick={this.handleClick}
         />
-        <a class="button expanded" href="#">Such Expand</a>
+        {bathrooms}
+      <a className="button expanded" href="#">Such Expand</a>
       </div>
     )
   }
