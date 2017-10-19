@@ -7,11 +7,11 @@ class BathroomForm extends Component {
     super(props);
     this.state = {
       errors: {},
+      establishment: '',
       address: '',
       city: '',
       state: '',
       zip: '',
-      establishment: '',
       gender: '',
       keyNeeded: false,
       toiletQuantity: 1
@@ -19,6 +19,7 @@ class BathroomForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyNeededChange = this.handleKeyNeededChange.bind(this);
+    this.clearForms = this.clearForms.bind(this);
   }
 
   handleChange(event) {
@@ -29,9 +30,50 @@ class BathroomForm extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
+    Object.keys(this.state).forEach((stateKey) => {
+      if( stateKey != 'errors' && stateKey != 'keyNeeded' && stateKey != 'toiletQuantity' ) {
+        let label = document.getElementById(stateKey).placeholder
+        this.validateInputs(this.state[stateKey], stateKey, label)
+      }
+    })
+    if( Object.keys(this.state.errors).length === 0 ) {
+      fetch(`/api/v1/bathrooms`, {
+        credentials: 'same-origin',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({
+          bathroom: {
+            establishment: this.state.establishment,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip,
+            gender: this.state.gender,
+            key_needed: this.state.keyNeeded,
+            toilet_quantity: parseInt(this.state.toiletQuantity, 10)
+          }
+        })
+      })
+      this.clearForms();
+    }
+  }
 
-
+  clearForms() {
+    this.setState({
+      establishment: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      gender: '',
+      keyNeeded: false,
+      toiletQuantity: 1
+    })
   }
 
   handleKeyNeededChange(event) {

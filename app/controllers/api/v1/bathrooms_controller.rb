@@ -1,6 +1,8 @@
 module Api
   module V1
     class BathroomsController < ApplicationController
+      skip_before_action :verify_authenticity_token, only: [:create]
+
       def index
         bathrooms = Bathroom.all
         render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
@@ -20,8 +22,23 @@ module Api
           }
         end
 
+
         render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroom, reviews: parsed_reviews }, status: :ok
       end
+
+      def create
+        bathroom = Bathroom.new(bathroom_params)
+        bathroom.user = current_user
+        if bathroom.save
+          render json: { status: 'SUCCESS', message: 'Saved new bathroom', bathrooms: bathroom }, status: :ok
+        end
+      end
+
+      private
+      def bathroom_params
+        params.require(:bathroom).permit(:establishment, :address, :city, :state, :zip, :gender, :key_needed, :toilet_quantity)
+      end
+
     end
   end
 end
