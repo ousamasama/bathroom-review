@@ -6,6 +6,7 @@ const SearchBar = props => {
       <a className="button large" onClick={props.handleClick} id='submit'>Search</a>
       <label>
         <input
+          id='search-field'
           name='address'
           type='text'
           placeholder='Enter location'
