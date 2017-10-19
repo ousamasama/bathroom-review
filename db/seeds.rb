@@ -17,7 +17,30 @@ admin = User.create!({
   username: Faker::Internet.user_name,
   role: "admin"
   })
-
+2.times do |b|
+  Bathroom.create({
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    establishment: Faker::Pokemon.name,
+    gender: "male",
+    key_needed: "true",
+    user_id: 1
+    })
+  end
+2.times do |b|
+  Bathroom.create({
+    address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    establishment: Faker::Pokemon.name,
+    gender: "female",
+    key_needed: "false",
+    user_id: 2
+    })
+  end
 
 20.times do |n|
   User.create!({

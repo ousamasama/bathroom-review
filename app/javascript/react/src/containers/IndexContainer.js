@@ -17,12 +17,13 @@ class IndexContainer extends Component {
     this.setState({ address: event.target.value })
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault()
     fetch('/api/v1/bathrooms')
     .then(response => response.json())
-    .then(data => this.setState({
-      bathrooms: data
-    }))
+    .then(body => {
+      this.setState({ bathrooms: body.bathrooms })
+    })
   }
 
   render() {
@@ -31,8 +32,8 @@ class IndexContainer extends Component {
       bathrooms = this.state.bathrooms.map(bathroom => {
         return(
             <BathroomTile
-              bathroom={bathroom}
               key={bathroom.id}
+              bathroom={bathroom}
             />
           )
         }
@@ -47,7 +48,6 @@ class IndexContainer extends Component {
           handleClick={this.handleClick}
         />
         {bathrooms}
-      <a className="button expanded" href="#">Such Expand</a>
       </div>
     )
   }

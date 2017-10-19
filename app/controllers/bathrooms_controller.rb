@@ -2,7 +2,11 @@ class BathroomsController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
+    @bathrooms = Bathroom.all
+  end
 
+  def show
+    @bathroom = Bathroom.find(params[:id])
   end
 
   protected
