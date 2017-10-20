@@ -8,5 +8,7 @@ class Bathroom < ApplicationRecord
   validates :gender, presence: true
   validates :toilet_quantity, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 20, allow_nil: true }
   belongs_to :user
+
   has_many :reviews
+  accepts_nested_attributes_for :reviews
 end
