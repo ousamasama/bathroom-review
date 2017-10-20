@@ -3,6 +3,7 @@ import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 import BathroomInfo from '../components/BathroomInfo'
 import ReviewTile from '../components/ReviewTile'
+import ReviewFormContainer from './ReviewFormContainer'
 
 class BathroomShowContainer extends Component {
   constructor(props){
@@ -25,6 +26,17 @@ class BathroomShowContainer extends Component {
     }
 
   render(){
+
+    let el  = document.querySelector('#app');
+    let user_id = el.dataset.user;
+    let signed;
+
+    if (user_id !== "") {
+      signed = "in"
+    } else {
+      signed = "out"
+    }
+
     let reviews = this.state.reviewInfo;
     let parsed_reviews;
     if (reviews.length !== 0) {
@@ -46,6 +58,9 @@ class BathroomShowContainer extends Component {
     return(
       <div>
         <BathroomInfo
+          bathroomInfo={this.state.bathroomInfo}
+        />
+        <ReviewFormContainer
           bathroomInfo={this.state.bathroomInfo}
         />
         {parsed_reviews}

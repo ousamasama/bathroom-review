@@ -3,11 +3,7 @@ import { Link } from 'react-router';
 
 const ReviewTile = props => {
   let firstLine;
-  if (props.city == null && props.state == null) {
-    firstLine = `${props.username} - ${props.created_at}`
-  } else if (props.city == null && props.state !== null) {
-    firstLine = `${props.username} - ${props.created_at}`
-  } else if (props.city !== null && props.state == null) {
+  if (props.city == null || props.state == null) {
     firstLine = `${props.username} - ${props.created_at}`
   } else {
     firstLine = `${props.username} - ${props.city}, ${props.state} - ${props.created_at}`
