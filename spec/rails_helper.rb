@@ -60,4 +60,6 @@ RSpec.configure do |config|
   config.after :each do
     Warden.test_reset!
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end

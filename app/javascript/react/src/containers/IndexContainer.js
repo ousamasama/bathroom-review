@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
+import BathroomForm from './BathroomForm'
 
 class IndexContainer extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class IndexContainer extends Component {
           handleClick={this.handleClick}
         />
         {bathrooms}
+        <BathroomForm/>
       </div>
     )
   }

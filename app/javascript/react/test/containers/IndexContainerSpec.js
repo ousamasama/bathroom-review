@@ -1,4 +1,5 @@
 import IndexContainer from '../../src/containers/IndexContainer';
+import BathroomForm from '../../src/containers/BathroomForm';
 import SearchBar from '../../src/components/SearchBar';
 import BathroomTile from '../../src/components/BathroomTile';
 
@@ -19,13 +20,17 @@ describe('IndexContainer', () => {
     expect(wrapper.find(SearchBar)).toBePresent();
   });
 
+  it('should render a BathroomForm component', () => {
+    expect(wrapper.find(BathroomForm)).toBePresent();
+  });
+
   describe('handleFormChange', () => {
     it('should be invoked when the handleFormChange property of SearchBar is called', () => {
-      wrapper.find('input').simulate('change', {target: {value: address}});
+      wrapper.find('#search-field').simulate('change', {target: {value: address}});
       expect(IndexContainer.prototype.handleFormChange).toHaveBeenCalled();
     });
     it('should be should change the state of address', () => {
-      wrapper.find('input').simulate('change', {target: {value: address}});
+      wrapper.find('#search-field').simulate('change', {target: {value: address}});
       expect(wrapper).toHaveState('address': address);
     });
   });

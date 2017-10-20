@@ -1,5 +1,5 @@
 class Api::V1::BathroomsController < ApplicationController
-  
+
   def index
     bathrooms = Bathroom.all
     render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
@@ -16,8 +16,21 @@ class Api::V1::BathroomsController < ApplicationController
         review_info: review,
         review_created_at: review.created_at.strftime('%-m/%d/%y')
       }
-    end
 
+    end
     render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroom, reviews: parsed_reviews }, status: :ok
+  end
+
+  def create
+    bathroom = Bathroom.new(bathroom_params)
+    bathroom.user = current_user
+    if bathroom.save
+      render json: { status: 'SUCCESS', message: 'Saved new bathroom', bathrooms: bathroom }, status: :ok
+    end
+  end
+
+  private
+  def bathroom_params
+    params.require(:bathroom).permit(:establishment, :address, :city, :state, :zip, :gender, :key_needed, :toilet_quantity)
   end
 end
