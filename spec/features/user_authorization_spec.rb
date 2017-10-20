@@ -71,7 +71,7 @@ feature 'nav_bar in layouts/application.html.erb' do
   end
 
   scenario "user signs out" do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, email: "emial3@website.com")
     login_as(user, :scope => :user)
 
     visit '/'
