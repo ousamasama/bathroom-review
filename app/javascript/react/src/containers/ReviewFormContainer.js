@@ -29,21 +29,14 @@ class ReviewFormContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    fetch(`/api/v1/reviews`, {
-      credentials: 'same-origin',
-      header: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'post',
-      body: JSON.stringify({
-        review: {
-          bathroom_id: this.props.bathroomInfo.id,
-          rating: this.state.rating,
-          body: this.state.body
-        }
-      })
+    let params = JSON.stringify({
+      review: {
+        bathroom_id: parseInt(this.props.bathroomInfo.id, 10),
+        rating: parseInt(this.state.rating, 10),
+        body: this.state.body
+      }
     })
+    this.props.addReview(params)
     this.clearForms();
   }
 

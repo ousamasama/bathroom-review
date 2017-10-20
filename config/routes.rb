@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
   root "bathrooms#index"
 
+  resources :bathrooms, only: [:show]
+  
   namespace :api do
     namespace :v1 do
-      resources :bathrooms, only: [:index, :show, :create] 
+      resources :bathrooms, only: [:index, :show, :create]
       resources :reviews, only: [:create]
     end
   end
