@@ -27,10 +27,11 @@ module Api
       end
 
       def create
-        bathroom = Bathroom.new(bathroom_params)
-        bathroom.user = current_user
+        bathroom = current_user.bathrooms.new(bathroom_params)
         if bathroom.save
-          render json: { status: 'SUCCESS', message: 'Saved new bathroom', bathrooms: bathroom }, status: :ok
+          head :created, location: api_v1_bathroom_url(bathroom)
+        else
+          head :unprocessable_entity
         end
       end
 
