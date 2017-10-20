@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020145558) do
+ActiveRecord::Schema.define(version: 20171020175136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20171020145558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "bathroom_photo"
     t.index ["address", "establishment", "city"], name: "index_bathrooms_on_address_and_establishment_and_city", unique: true
     t.index ["user_id"], name: "index_bathrooms_on_user_id"
   end
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(version: 20171020145558) do
     t.string "avatar_url"
     t.string "city"
     t.string "state"
+    t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
