@@ -13,8 +13,10 @@ const ReviewTile = props => {
     firstLine = `${props.username} - ${props.city}, ${props.state} - ${props.created_at}`
   }
 
+
   return(
     <div>
+      <img src={props.profile_photo} className="profile-thumbnail"/>
       <h3>{firstLine}</h3>
       <p className="review-rating"><strong>{props.rating}</strong></p>
       <p className="review-body">{props.body}</p>

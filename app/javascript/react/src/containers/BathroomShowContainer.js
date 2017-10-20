@@ -38,6 +38,7 @@ class BathroomShowContainer extends Component {
             created_at={review.review_created_at}
             rating={review.review_info.rating}
             body={review.review_info.body}
+            profile_photo={review.user_info.profile_photo.url}
           />
         )
       })
