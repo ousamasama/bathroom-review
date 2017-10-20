@@ -12,9 +12,9 @@
 //
 //= require rails-ujs
 //= require_tree .
-//= require foundation
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 
 $(document).foundation();
 $(function(){ $(document).foundation(); });

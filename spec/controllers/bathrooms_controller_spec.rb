@@ -14,7 +14,28 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(first["establishment"]).to eq "McDonalds"
+    end
+  end
 
+  describe "POST#bathrooms" do
+    let!(:bath) {{
+      establishment: "Starbucks",
+      address: "1 Main St",
+      city: "Boston",
+      state: "MA",
+      zip: "02111",
+      gender: "Unisex",
+      key_needed: false,
+      toilet_quantity: 1
+    }}
+    let!(:params) { {bathroom: bath} }
+    it "recieves bathroom data and creates a new bathroom" do
+      post :create, params: params
+
+      bathroom = Bathroom.last
+      expect(bathroom.establishment).to eq "Starbucks"
+      # expect(response.status).to eq 200
+      # expect(response.content_type).to eq("application/json")
     end
   end
 end

@@ -3,6 +3,11 @@ class BathroomsController < ApplicationController
 
   def index
     @bathrooms = Bathroom.all
+    if current_user
+      @user = current_user.id
+    else
+      @user = nil
+    end
   end
 
   def show
