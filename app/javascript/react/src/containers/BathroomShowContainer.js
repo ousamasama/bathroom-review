@@ -9,7 +9,8 @@ class BathroomShowContainer extends Component {
     super(props);
     this.state = {
       bathroomInfo: {},
-      reviewInfo: []
+      reviewInfo: [],
+      user: {}
     }
   }
   componentDidMount(){
@@ -22,6 +23,16 @@ class BathroomShowContainer extends Component {
           reviewInfo: body.reviews
          })
       })
+
+      fetch(`/api/v1/users.json`, {
+        credentials: 'same-origin',
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({ user: body })
+      })
     }
 
   render(){
@@ -32,13 +43,16 @@ class BathroomShowContainer extends Component {
         return(
           <ReviewTile
             key={review.review_info.id}
+            id={review.review_info.id}
             city={review.user_info.city}
             state={review.user_info.state}
             username={review.user_info.username}
-            created_at={review.review_created_at}
+            createdAt={review.review_created_at}
             rating={review.review_info.rating}
             body={review.review_info.body}
-            profile_photo={review.user_info.profile_photo.url}
+            profilePhoto={review.user_info.profile_photo.url}
+            currentUser={this.state.user}
+            votes={review.review_votes}
           />
         )
       })
