@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bathrooms
   has_many :reviews
+  has_many :votes
 
   validates :username, presence: true
   validates :email, presence: true

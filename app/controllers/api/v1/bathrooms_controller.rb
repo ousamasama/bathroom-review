@@ -18,6 +18,7 @@ module Api
           thing = {
             user_info: user,
             review_info: review,
+            review_votes: review.votes,
             review_created_at: review.created_at.strftime('%-m/%d/%y')
           }
         end
