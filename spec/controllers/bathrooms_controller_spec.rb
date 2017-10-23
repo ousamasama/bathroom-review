@@ -40,7 +40,7 @@ RSpec.describe "API V1 Bathrooms", type: 'request' do
       end
 
       it "creates a new bathroom" do
-        user = FactoryGirl.create(:user, email: "email1@website.com")
+        user = FactoryGirl.create(:user)
         login_as(user, :scope => :user)
         expect { post "/api/v1/bathrooms", params: valid_params }.to change(Bathroom, :count).by(+1)
         expect(response).to have_http_status :created
@@ -48,7 +48,7 @@ RSpec.describe "API V1 Bathrooms", type: 'request' do
       end
 
       it "creates a bathroom with the correct attributes" do
-        user = FactoryGirl.create(:user, email: "email2@website.com")
+        user = FactoryGirl.create(:user)
         login_as(user, :scope => :user)
         post "/api/v1/bathrooms", params: valid_params
         expect(Bathroom.last).to have_attributes valid_params[:bathroom]
@@ -56,27 +56,3 @@ RSpec.describe "API V1 Bathrooms", type: 'request' do
     end
   end
 end
-
-#
-#   describe "POST#bathrooms" do
-#     let!(:bath) {{
-#       establishment: "Starbucks",
-#       address: "1 Main St",
-#       city: "Boston",
-#       state: "MA",
-#       zip: "02111",
-#       gender: "Unisex",
-#       key_needed: false,
-#       toilet_quantity: 1
-#     }}
-#     let!(:params) { {bathroom: bath} }
-#     it "recieves bathroom data and creates a new bathroom" do
-#       post :create, params: params
-#
-#       bathroom = Bathroom.last
-#       expect(post :create, params: params).to change(Bathroom, :count).by(1)
-#       # expect(response.status).to eq 200
-#       # expect(response.content_type).to eq("application/json")
-#     end
-#   end
-# end

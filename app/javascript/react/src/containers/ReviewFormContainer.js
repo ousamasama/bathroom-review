@@ -29,14 +29,14 @@ class ReviewFormContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    let params = JSON.stringify({
+    let formPayload = ({
       review: {
         bathroom_id: parseInt(this.props.bathroomInfo.id, 10),
         rating: parseInt(this.state.rating, 10),
         body: this.state.body
       }
     })
-    this.props.addReview(params)
+    this.props.addReview(formPayload)
     this.clearForms();
   }
 

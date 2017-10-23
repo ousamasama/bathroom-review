@@ -24,7 +24,13 @@ class BathroomShowContainer extends Component {
         'Content-Type': 'application/json'
       },
       method: 'post',
-      body: formPayload
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        reviewInfo: this.state.reviewInfo.concat(body.review)
+      })
     })
   }
 

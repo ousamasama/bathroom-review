@@ -20,7 +20,7 @@ class IndexContainer extends Component {
 
   handleClick(event) {
     event.preventDefault()
-    fetch('/api/v1/bathrooms')
+    fetch(`/api/v1/bathrooms/?query=${this.state.address}`)
     .then(response => response.json())
     .then(body => {
       this.setState({ bathrooms: body.bathrooms })

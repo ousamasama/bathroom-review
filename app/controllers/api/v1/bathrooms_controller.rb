@@ -4,8 +4,15 @@ module Api
       skip_before_action :verify_authenticity_token, only: [:create]
 
       def index
-        bathrooms = Bathroom.all
-        render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
+        if params[:query]
+          bathrooms = Bathroom.where('establishment LIKE ?', "%#{params[:query].capitalize}%")
+
+          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
+          puts bathrooms
+        else
+          bathrooms = Bathroom.all
+          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
+        end
       end
 
       def show
@@ -14,7 +21,7 @@ module Api
         parsed_reviews = reviews.map do |review|
           user = User.find(review.user_id)
 
-          thing = {
+          review = {
             user_info: user,
             review_info: review,
             review_created_at: review.created_at.strftime('%-m/%d/%y')

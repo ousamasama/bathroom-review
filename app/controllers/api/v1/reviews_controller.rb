@@ -6,11 +6,12 @@ module Api
       def create
         review = current_user.reviews.new(review_params)
         if review.save
-          return_review = {
-            status: 200,
-            review: review
-          }.to_json
-          render json: { status: 'SUCCESS', message: 'Added Review', review: return_review }, status: :ok
+          returned_review = {
+            user_info: current_user,
+            review_info: review,
+            review_created_at: review.created_at.strftime('%-m/%d/%y')
+          }
+          render json: { status: 'SUCCESS', message: 'Added Review', review: returned_review }, status: :created
         else
           head :unprocessable_entity
         end
