@@ -4,10 +4,16 @@ Rails.application.routes.draw do
   }
 
   root "bathrooms#index"
+  namespace :admin do
+    resources :users, only: [:index]
+  end
 
   namespace :api do
     namespace :v1 do
       resources :bathrooms, only: [:index, :show, :create]
+      namespace :admin do
+        resources :users
+      end
     end
   end
 
