@@ -16,9 +16,7 @@ describe('BathroomShowContainer', () => {
 
   beforeEach(() => {
     wrapper = mount(<BathroomShowContainer
-        params={
-          bathrooms
-        }
+        params={bathrooms}
       />
     );
   })

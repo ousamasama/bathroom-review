@@ -82,6 +82,7 @@ GEM
       thor (~> 0.19.4)
       tins (~> 1.6)
     crass (1.0.2)
+    database_cleaner (1.6.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -100,6 +101,8 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -277,9 +280,11 @@ DEPENDENCIES
   carrierwave-base64
   coffee-rails (~> 4.2)
   coveralls
+  database_cleaner
   devise
   factory_girl_rails
   faker
+  font-awesome-sass
   foundation-rails
   jbuilder (~> 2.5)
   jquery-rails

@@ -31,6 +31,7 @@ gem 'devise'
 gem 'react-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -39,6 +40,7 @@ gem 'webpacker'
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 group :development, :test do

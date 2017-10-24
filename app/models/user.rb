@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bathrooms
   # has_many :bathrooms, dependent: :destroy
   has_many :reviews
+  has_many :votes
 
   validates :username, presence: true
   validates :email, presence: true
