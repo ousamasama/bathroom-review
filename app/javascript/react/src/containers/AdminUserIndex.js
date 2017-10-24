@@ -64,6 +64,7 @@ class AdminUserIndex extends Component {
 
     return (
       <div>
+        <h1>Admin User Page</h1>
         {users}
       </div>
 
