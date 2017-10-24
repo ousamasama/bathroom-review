@@ -7,6 +7,7 @@ class AdminUserIndex extends Component {
     this.state = {
       users: []
     }
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -24,6 +25,28 @@ class AdminUserIndex extends Component {
     })
   }
 
+  handleDelete(id) {
+    fetch(`/api/v1/admin/users/${id}`, {
+      credentials: 'same-origin',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      method: 'delete',
+      body: JSON.stringify({
+        user: {
+          id: id
+        }
+      })
+    })
+
+    let remainingUsers = this.state.users.filter(user => {
+      return user.id !== id
+    })
+    this.setState({ users: remainingUsers })
+  }
+
+
   render() {
 
     let users = this.state.users.map(user => {
@@ -34,6 +57,7 @@ class AdminUserIndex extends Component {
           username={user.username}
           role={user.role}
           email={user.email}
+          handleDelete={this.handleDelete}
         />
       )
     })
