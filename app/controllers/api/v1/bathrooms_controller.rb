@@ -2,6 +2,7 @@ module Api
   module V1
     class BathroomsController < ApplicationController
       skip_before_action :verify_authenticity_token, only: [:create]
+      before_action :authenticate_bathroom_creator, only: [:destroy]
 
       def index
         bathrooms = Bathroom.all
@@ -37,12 +38,11 @@ module Api
       end
 
       def destroy
-        before_action :authorize_bathroom_creator
         bathroom = Bathroom.find(params[:id])
 
         if bathroom.destroy
-          render json: { status: 'SUCCESS', message: 'Bathroom deleted.' }
-          redirect_to '/'
+
+          redirect_to root_url, status: 303
         else
           render json: { status: 'FAILURE', message: "Bathroom not deleted." }
         end

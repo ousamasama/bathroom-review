@@ -76,8 +76,9 @@ class BathroomShowContainer extends Component {
         <div>
           <BathroomInfo
             bathroomInfo={this.state.bathroomInfo}
+            handleDelete={this.handleDelete}
+            id={this.state.bathroomInfo.id}
           />
-          <div className="button" onClick={this.handleDelete(this.state.bathroomInfo.id)}>ButtonDiv!</div>
           {parsed_reviews}
         </div>
       )

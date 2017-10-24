@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   namespace :api do
     namespace :v1 do
-      resources :bathrooms, only: [:index, :show, :create]
+      resources :bathrooms, only: [:index, :show, :create, :destroy]
       resources :users, only: [:index]
       resources :votes, only: [:create, :update]
       namespace :admin do
