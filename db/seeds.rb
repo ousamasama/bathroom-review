@@ -13,7 +13,6 @@ admin = User.create!({
   city: Faker::Address.city_suffix,
   state: Faker::Address.state,
   encrypted_password: Faker::Internet.password,
-  avatar_url: Faker::Internet.url,
   username: Faker::Internet.user_name,
   role: "admin"
   })
@@ -49,7 +48,6 @@ admin = User.create!({
     city: Faker::Address.city_suffix,
     state: Faker::Address.state,
     encrypted_password: Faker::Internet.password,
-    avatar_url: Faker::Internet.url,
     username: Faker::Internet.user_name,
     role: "member"
   })
