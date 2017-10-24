@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :bathrooms, only: [:index, :show, :create]
       resources :users, only: [:index]
       resources :votes, only: [:create, :update]
+      resources :reviews, only: [:create]
     end
   end
 

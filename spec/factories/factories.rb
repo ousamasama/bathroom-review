@@ -8,13 +8,6 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  factory :review do
-    body 'This is great!'
-    rating 3
-  end
-end
-
-FactoryGirl.define do
   factory :bathroom do
     establishment "Fake Place"
     address "123 Main St"
