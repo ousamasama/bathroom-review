@@ -3,6 +3,7 @@ import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 import BathroomInfo from '../components/BathroomInfo'
 import ReviewTile from '../components/ReviewTile'
+import ReviewFormContainer from './ReviewFormContainer'
 
 class BathroomShowContainer extends Component {
   constructor(props){
@@ -12,7 +13,27 @@ class BathroomShowContainer extends Component {
       reviewInfo: [],
       user: {}
     }
+    this.addNewReview = this.addNewReview.bind(this)
   }
+
+  addNewReview(formPayload) {
+    fetch(`/api/v1/reviews`, {
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        reviewInfo: this.state.reviewInfo.concat(body.review)
+      })
+    })
+  }
+
   componentDidMount(){
       let bathroomId = this.props.params.id
       fetch(`/api/v1/bathrooms/${bathroomId}`)
@@ -62,6 +83,10 @@ class BathroomShowContainer extends Component {
       <div>
         <BathroomInfo
           bathroomInfo={this.state.bathroomInfo}
+        />
+        <ReviewFormContainer
+          bathroomInfo={this.state.bathroomInfo}
+          addReview={this.addNewReview}
         />
         {parsed_reviews}
       </div>

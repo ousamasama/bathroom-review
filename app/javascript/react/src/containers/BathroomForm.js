@@ -107,6 +107,8 @@ class BathroomForm extends Component {
       errorDiv = <div className='callout alert'>{errorItems}</div>
     }
 
+    let number = 10
+
     return(
       <form id='add-bathroom-form'>
         <h3>Add New Bathroom:</h3>
@@ -155,6 +157,8 @@ class BathroomForm extends Component {
         />
         <QuantitySelector
           name="toiletQuantity"
+          label="Toilet Quantity:"
+          number={number}
           formFieldChange={this.handleChange}
           fieldContent={this.state.toiletQuantity}
         />
