@@ -16,9 +16,7 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
       expect(first["establishment"]).to eq "McDonalds"
     end
   end
-
 end
-
 
 RSpec.describe "API V1 Bathrooms", type: 'request' do
   describe "POST /api/v1/bathrooms" do
