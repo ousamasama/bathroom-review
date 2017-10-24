@@ -12,28 +12,41 @@ class BathroomShowContainer extends Component {
       reviewInfo: [],
       user: {}
     }
+    this.handleDelete = this.handleDelete.bind(this)
   }
   componentDidMount(){
-      let bathroomId = this.props.params.id
-      fetch(`/api/v1/bathrooms/${bathroomId}`)
-      .then(response => response.json())
-      .then(body => {
-        this.setState({
-          bathroomInfo: body.bathrooms,
-          reviewInfo: body.reviews
-         })
-      })
+    let bathroomId = this.props.params.id
+    fetch(`/api/v1/bathrooms/${bathroomId}`)
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        bathroomInfo: body.bathrooms,
+        reviewInfo: body.reviews
+       })
+    })
 
-      fetch(`/api/v1/users.json`, {
-        credentials: 'same-origin',
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({ user: body })
-      })
-    }
+    fetch(`/api/v1/users.json`, {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ user: body })
+    })
+  }
+
+  handleDelete(id) {
+    fetch(`/api/v1/bathrooms/${id}`, {
+      credentials: 'same-origin',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      method: 'delete'
+    })
+  }
+
 
   render(){
     let reviews = this.state.reviewInfo;
@@ -58,16 +71,28 @@ class BathroomShowContainer extends Component {
       })
     }
 
-    return(
-      <div>
-        <BathroomInfo
-          bathroomInfo={this.state.bathroomInfo}
-        />
-        {parsed_reviews}
-      </div>
-    )
+    if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
+      return(
+        <div>
+          <BathroomInfo
+            bathroomInfo={this.state.bathroomInfo}
+          />
+          <div className="button" onClick={this.handleDelete(this.state.bathroomInfo.id)}>ButtonDiv!</div>
+          {parsed_reviews}
+        </div>
+      )
+    } else {
+      return(
+        <div>
+          <BathroomInfo
+            bathroomInfo={this.state.bathroomInfo}
+          />
+          {parsed_reviews}
+        </div>
+      )
+    }
+    end
   }
-
 }
 
 export default BathroomShowContainer;

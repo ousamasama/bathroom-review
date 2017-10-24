@@ -36,6 +36,18 @@ module Api
         end
       end
 
+      def destroy
+        before_action :authorize_bathroom_creator
+        bathroom = Bathroom.find(params[:id])
+
+        if bathroom.destroy
+          render json: { status: 'SUCCESS', message: 'Bathroom deleted.' }
+          redirect_to '/'
+        else
+          render json: { status: 'FAILURE', message: "Bathroom not deleted." }
+        end
+      end
+
       private
       def bathroom_params
         params.require(:bathroom).permit(:establishment, :address, :city, :state, :zip, :gender, :key_needed, :toilet_quantity)
