@@ -2,8 +2,8 @@ import React from 'react'
 
 const SearchBar = props => {
   return(
-    <div>
-      <a className="button large" onClick={props.handleClick} id='submit'>Search</a>
+    <form>
+      <input type="submit" className="button large" value="Search" onClick={props.handleClick} id='submit'></input>
       <label>
         <input
           id='search-field'
@@ -14,7 +14,7 @@ const SearchBar = props => {
           onChange={props.handlerFunction}
           />
       </label>
-    </div>
+    </form>
 
   );
 }

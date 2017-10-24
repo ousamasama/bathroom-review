@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'react-rails'
+gem 'geokit-rails'
+gem 'rb-readline', :require => false 
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
