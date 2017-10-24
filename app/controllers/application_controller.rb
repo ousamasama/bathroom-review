@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :profile_photo])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :profile_photo])
   end
+
+  def authenticate_admin
+    unless user_signed_in? && current_user.admin?
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
 end
