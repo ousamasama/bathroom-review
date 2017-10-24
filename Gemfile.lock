@@ -56,6 +56,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.2.1)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+    carrierwave-base64 (2.6.1)
+      carrierwave (>= 0.8.0)
+      mime-types (~> 3.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
@@ -93,6 +100,8 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -266,11 +275,14 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  carrierwave (~> 1.0)
+  carrierwave-base64
   coffee-rails (~> 4.2)
   coveralls
   devise
   factory_girl_rails
   faker
+  font-awesome-sass
   foundation-rails
   jbuilder (~> 2.5)
   jquery-rails

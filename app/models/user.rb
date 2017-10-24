@@ -6,9 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bathrooms
   has_many :reviews
+  has_many :votes
 
   validates :username, presence: true
   validates :email, presence: true
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 
    def admin?
      role == "admin"
