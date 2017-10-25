@@ -80,7 +80,7 @@ class BathroomShowContainer extends Component {
     }
 
     return(
-      <div>
+      <div className="grid-container">
         <BathroomInfo
           bathroomInfo={this.state.bathroomInfo}
         />

@@ -4,18 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %>BathroomReview</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= javascript_pack_tag 'application' %>
-    <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "vendor/modernizr", 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div className="top-bar">
-      <li className="page-title"><a href="/">Home</a></li>
-      <div className="top-bar-right">
-        <ul className="menu">
+    <div class="top-bar">
+      <ul class="menu">
+        <li class="menu-text"><a href="/">Privy</a></li>
+      </ul>
+      <div class="top-bar-right">
+        <ul class="menu">
           <li>
             <% if current_user == nil %>
               <%= link_to 'Sign In', new_user_session_path %>
