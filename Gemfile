@@ -31,6 +31,9 @@ gem 'devise'
 gem 'react-rails'
 gem 'geokit-rails'
 gem 'rb-readline', :require => false
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

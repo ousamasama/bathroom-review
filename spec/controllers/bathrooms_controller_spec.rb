@@ -25,7 +25,6 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
   end
 end
 
-
 RSpec.describe "API V1 Bathrooms", type: 'request' do
   describe "POST /api/v1/bathrooms" do
     context "with valid parameters" do

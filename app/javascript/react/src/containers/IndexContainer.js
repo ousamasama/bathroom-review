@@ -8,10 +8,23 @@ class IndexContainer extends Component {
     super(props)
     this.state = {
       address: '',
-      bathrooms: []
+      bathrooms: [],
+      user: {}
     }
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  componentDidMount() {
+    fetch(`/api/v1/users.json`, {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ user: body })
+    })
   }
 
   handleFormChange(event) {
@@ -25,6 +38,12 @@ class IndexContainer extends Component {
     .then(body => {
       this.setState({ bathrooms: body.bathrooms })
     })
+  }
+
+  handleShowForm(event) {
+    event.preventDefault();
+    let form = document.getElementById("new-bathroom-form")
+
   }
 
   render() {
@@ -49,7 +68,9 @@ class IndexContainer extends Component {
           handleClick={this.handleClick}
         />
         {bathrooms}
-        <BathroomForm/>
+        <div id="new-bathroom-form" className="hidden">
+          <BathroomForm/>
+        </div>
       </div>
     )
   }
