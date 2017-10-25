@@ -23,17 +23,6 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
       expect(second["establishment"]).to eq "Turkey"
     end
   end
-
-  describe "search GET#index" do
-    it "retrieves bathrooms sorted by distance from a location" do
-      get :index, :query => query
-
-      expect(response).to have_http_status :ok
-      expect(response.content_type).to eq("application/json")
-      # expect(first["establishment"]).to eq "McDonalds"
-      # expect(second["establishment"]).to eq "North Atlantic"
-    end
-  end
 end
 
 

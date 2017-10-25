@@ -60,15 +60,25 @@ ActiveRecord::Schema.define(version: 20171024171546) do
     t.datetime "updated_at", null: false
     t.string "role", default: "member", null: false
     t.string "username", null: false
-    t.string "avatar_url"
     t.string "city"
     t.string "state"
+    t.string "profile_photo"
     t.string "confirmable_token"
     t.datetime "confirmed_at"
     t.string "confirmation_sent_at"
     t.string "unlock_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "review_id"
+    t.integer "vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_votes_on_review_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "bathrooms", "users"
