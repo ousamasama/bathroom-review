@@ -37,7 +37,7 @@ admin = User.create!({
     establishment: Faker::Pokemon.name,
     gender: "female",
     key_needed: "false",
-    user_id: 2,
+    user_id: 2
     })
   end
 
