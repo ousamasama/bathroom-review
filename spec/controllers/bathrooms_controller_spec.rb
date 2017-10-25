@@ -1,14 +1,11 @@
 require "rails_helper"
 
-RSpec.describe Api::V1::BathroomsController, type: :controller do
+RSpec.describe Api::V1::BathroomsController, vcr: true, type: :controller do
   let!(:first_user) { User.create!(role: "member", email: "email@website.com", password: "password", username: "a_user") }
   let!(:query) { "Launch Academy" }
   let!(:mcdonalds) { Bathroom.create!(address: "329 Washington St", city: "Boston", state: "MA", zip: "02108", establishment: "McDonalds", gender: "men", key_needed: "false", toilet_quantity: 4, lat: 42.3554591, lng: -71.0613316, user: first_user) }
 
   let!(:first_bathroom) { FactoryGirl.create(:bathroom, establishment: "Turkey", lat: 40, lng: 40) }
-  let!(:second_bathroom) { FactoryGirl.create(:bathroom, establishment: "Indian Ocean", lat: -40, lng: 40) }
-  let!(:third_bathroom) { FactoryGirl.create(:bathroom, establishment: "South Atlantic", lat: -40, lng: -40) }
-  let!(:fourth_bathroom) { FactoryGirl.create(:bathroom, establishment: "North Atlantic", lat: 40, lng: -40) }
 
   describe "GET#index" do
     it "retrieves bathroom data" do
@@ -26,12 +23,15 @@ RSpec.describe Api::V1::BathroomsController, type: :controller do
 
   describe "search GET#index" do
     it "retrieves bathrooms sorted by distance from a location" do
-      get :index, :query => query
+      VCR.use_cassette("search", :record => :new_episodes) do
+        response = Net::HTTP.get_response(URI("http://localhost:3000/api/v1/bathrooms/?query=#{query}"))
+        returned_json = JSON.parse(response.body)
+        first = returned_json["bathrooms"][0]
+        second = returned_json["bathrooms"][1]
 
-      expect(response).to have_http_status :ok
-      expect(response.content_type).to eq("application/json")
-      # expect(first["establishment"]).to eq "McDonalds"
-      # expect(second["establishment"]).to eq "North Atlantic"
+        expect(first["establishment"]).to eq "Starbucks"
+        expect(second["establishment"]).to eq "South Station"
+      end
     end
   end
 end
