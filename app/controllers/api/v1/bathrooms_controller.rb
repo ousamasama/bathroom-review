@@ -36,7 +36,7 @@ module Api
       def create
         bathroom = current_user.bathrooms.new(bathroom_params)
         if bathroom.save
-          head :created, location: api_v1_bathroom_url(bathroom)
+          render json: { status: 'SUCCESS', bathrooms: bathroom }, status: :ok
         else
           head :unprocessable_entity
         end
@@ -46,8 +46,7 @@ module Api
         bathroom = Bathroom.find(params[:id])
 
         if bathroom.destroy
-
-          redirect_to root_url, status: 303
+          render json: { status: 'SUCCESS', message: 'Bathroom deleted.' }
         else
           render json: { status: 'FAILURE', message: "Bathroom not deleted." }
         end

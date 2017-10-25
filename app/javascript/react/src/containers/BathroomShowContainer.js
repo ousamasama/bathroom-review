@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 import BathroomInfo from '../components/BathroomInfo'
@@ -65,6 +66,8 @@ class BathroomShowContainer extends Component {
           'Content-Type': 'application/json'
       },
       method: 'delete'
+    }).then(response => {
+      this.props.router.push('/')
     })
   }
 
@@ -125,4 +128,4 @@ class BathroomShowContainer extends Component {
   }
 }
 
-export default BathroomShowContainer;
+export default withRouter(BathroomShowContainer);
