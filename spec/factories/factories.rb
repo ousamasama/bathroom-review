@@ -1,15 +1,15 @@
 FactoryGirl.define do
   factory :user do
-    email 'test@example.com'
-    password 'f4k3p455w0rd'
-    username 'user_test'
+    email {Faker::Internet.email}
+    password {Faker::Internet.password}
+    username {Faker::Internet.user_name}
+    role "member"
   end
-end
-
-FactoryGirl.define do
-  factory :review do
-    body 'This is great!'
-    rating 3
+  factory :admin do
+    email {Faker::Internet.email}
+    password {Faker::Internet.password}
+    username {Faker::Internet.user_name}
+    role "admin"
   end
 end
 
@@ -23,5 +23,15 @@ FactoryGirl.define do
     gender "Unisex"
     key_needed false
     toilet_quantity 1
+    user
+  end
+end
+
+FactoryGirl.define do
+  factory :review do
+    rating 2
+    body {Faker::Pokemon.name}
+    bathroom
+    user
   end
 end

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bathrooms
+  # has_many :bathrooms, dependent: :destroy
   has_many :reviews
   has_many :votes
 
