@@ -60,17 +60,25 @@ class UpvoteDownvote extends Component {
   componentDidMount() {
     let currentUserVote = 0
     let netVotes = 0;
-    this.props.votes.forEach(vote => {
 
-      if (vote.user_id == this.props.currentUser.id) {
-        currentUserVote = vote.vote
-      }
-      netVotes += vote.vote
-    })
-    this.setState({
-      currentUserVote: currentUserVote,
-      netVotes: netVotes
-    })
+    if (this.props.votes) {
+      this.props.votes.forEach(vote => {
+
+        if (vote.user_id == this.props.currentUser.id) {
+          currentUserVote = vote.vote
+        }
+        netVotes += vote.vote
+      })
+      this.setState({
+        currentUserVote: currentUserVote,
+        netVotes: netVotes
+      })
+    } else {
+      this.setState({
+        currentUserVote: currentUserVote,
+        netVotes: netVotes
+      })
+    }
   }
 
   render() {
