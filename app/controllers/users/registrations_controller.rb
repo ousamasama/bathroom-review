@@ -10,6 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        UserMailer.welcome_email(@user).deliver_later
+
+        format.html { redirect_to(@user, notice: 'User was successfully created!') }
+          format.json { render json: @user, status: :created, location: @user }
+        else
+    end
   end
 
   # GET /resource/edit

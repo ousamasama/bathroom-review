@@ -13,7 +13,27 @@ class BathroomShowContainer extends Component {
       reviewInfo: [],
       user: {}
     }
+    this.addNewReview = this.addNewReview.bind(this)
   }
+
+  addNewReview(formPayload) {
+    fetch(`/api/v1/reviews`, {
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        reviewInfo: this.state.reviewInfo.concat(body.review)
+      })
+    })
+  }
+
   componentDidMount(){
       let bathroomId = this.props.params.id
       fetch(`/api/v1/bathrooms/${bathroomId}`)
@@ -37,17 +57,6 @@ class BathroomShowContainer extends Component {
     }
 
   render(){
-
-    let el  = document.querySelector('#app');
-    let user_id = el.dataset.user;
-    let signed;
-
-    if (user_id !== "") {
-      signed = "in"
-    } else {
-      signed = "out"
-    }
-
     let reviews = this.state.reviewInfo;
     let parsed_reviews;
     if (reviews.length !== 0) {
@@ -77,6 +86,7 @@ class BathroomShowContainer extends Component {
         />
         <ReviewFormContainer
           bathroomInfo={this.state.bathroomInfo}
+          addReview={this.addNewReview}
         />
         {parsed_reviews}
       </div>

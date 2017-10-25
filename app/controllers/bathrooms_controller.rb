@@ -12,6 +12,11 @@ class BathroomsController < ApplicationController
 
   def show
     @bathroom = Bathroom.find(params[:id])
+    if current_user
+      @user = current_user.id
+    else
+      @user = nil
+    end
   end
 
   protected

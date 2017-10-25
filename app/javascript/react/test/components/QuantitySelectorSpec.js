@@ -6,6 +6,8 @@ describe('QuantitySelector', () => {
   beforeEach(() => {
     wrapper = mount(
       <QuantitySelector
+        label="Quantity"
+        number={3}
         name="toiletQuantity"
         fieldContent="3"
       />
