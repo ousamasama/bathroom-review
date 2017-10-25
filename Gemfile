@@ -29,11 +29,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'react-rails'
+gem 'geokit-rails'
+gem 'rb-readline', :require => false
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 gem 'font-awesome-sass'
-gem 'geokit-rails'
-gem 'rb-readline', :require => false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
