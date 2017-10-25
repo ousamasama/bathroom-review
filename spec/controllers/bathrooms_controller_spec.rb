@@ -2,18 +2,25 @@ require "rails_helper"
 
 RSpec.describe Api::V1::BathroomsController, type: :controller do
   let!(:first_user) { User.create!(role: "member", email: "email@website.com", password: "password", username: "a_user") }
+  let!(:query) { "Launch Academy" }
+  let!(:mcdonalds) { Bathroom.create!(address: "329 Washington St", city: "Boston", state: "MA", zip: "02108", establishment: "McDonalds", gender: "men", key_needed: "false", toilet_quantity: 4, lat: 42.3554591, lng: -71.0613316, user: first_user) }
 
-  let!(:mcdonalds) { Bathroom.create!(address: "123 Fake St.", city: "Boston", state: "MA", zip: 12111, establishment: "McDonalds", gender: "men", key_needed: "false", toilet_quantity: 4, user: first_user) }
+  let!(:first_bathroom) { FactoryGirl.create(:bathroom, establishment: "Turkey", lat: 40, lng: 40) }
+  let!(:second_bathroom) { FactoryGirl.create(:bathroom, establishment: "Indian Ocean", lat: -40, lng: 40) }
+  let!(:third_bathroom) { FactoryGirl.create(:bathroom, establishment: "South Atlantic", lat: -40, lng: -40) }
+  let!(:fourth_bathroom) { FactoryGirl.create(:bathroom, establishment: "North Atlantic", lat: 40, lng: -40) }
 
   describe "GET#index" do
     it "retrieves bathroom data" do
       get :index
       returned_json = JSON.parse(response.body)
       first = returned_json["bathrooms"][0]
+      second = returned_json["bathrooms"][1]
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(first["establishment"]).to eq "McDonalds"
+      expect(second["establishment"]).to eq "Turkey"
     end
   end
 end
