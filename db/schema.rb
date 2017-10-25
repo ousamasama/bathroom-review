@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 20171024171546) do
     t.string "username", null: false
     t.string "city"
     t.string "state"
-    t.string "profile_photo"
     t.string "confirmable_token"
     t.datetime "confirmed_at"
     t.string "confirmation_sent_at"
     t.string "unlock_token"
+    t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
