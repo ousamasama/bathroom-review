@@ -1,3 +1,5 @@
+require "dotenv"
+Dotenv.load
 # These defaults are used in Geokit::Mappable.distance_to and acts_as_mappable
 Geokit::default_units = :miles # others :kms, :nms, :meters
 Geokit::default_formula = :sphere
@@ -28,7 +30,7 @@ Geokit::Geocoders::request_timeout = 3
 
 # You can also use the free API key instead of signed requests
 # See https://developers.google.com/maps/documentation/geocoding/#api_key
-Geokit::Geocoders::GoogleGeocoder.api_key = 'AIzaSyBL19cFu2cCHQ7yiey3auFBYoJ19R51870'
+Geokit::Geocoders::GoogleGeocoder.api_key = ENV["GEOKIT_TOKEN"]
 Geokit::Geocoders::provider_order=[:google]
 
 # You can also set multiple API KEYS for different domains that may be directed
