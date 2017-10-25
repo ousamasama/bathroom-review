@@ -5,9 +5,9 @@ module Api
       before_action :authenticate_bathroom_creator, only: [:destroy]
 
       def index
-        if params[:query]
-          bathrooms = Bathroom.where('establishment LIKE ?', "%#{params[:query].capitalize}%")
-
+        location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:query])
+        if location.success
+          bathrooms = Bathroom.by_distance(origin: location)
           render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
           puts bathrooms
         else
@@ -35,6 +35,9 @@ module Api
 
       def create
         bathroom = current_user.bathrooms.new(bathroom_params)
+        location = Geokit::Geocoders::GoogleGeocoder.geocode("#{bathroom.address}, #{bathroom.city}, #{bathroom.state} #{bathroom.zip}")
+        bathroom.lat = location.lat
+        bathroom.lng = location.lng
         if bathroom.save
           render json: { status: 'SUCCESS', bathrooms: bathroom }, status: :ok
         else
