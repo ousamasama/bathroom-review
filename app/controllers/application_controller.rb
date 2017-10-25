@@ -14,4 +14,18 @@ class ApplicationController < ActionController::Base
       render json: { error: "Not authorized" }, status: :unauthorized
     end
   end
+
+  def authenticate_bathroom_creator
+    bathroom = Bathroom.find(params[:id])
+    unless current_user.id == bathroom.id || current_user.admin?
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
+
+
+  def authenticate_review_creator
+    unless current_user.id == review.id || current_user.admin?
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
 end
