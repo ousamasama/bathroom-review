@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   }
 
   root "bathrooms#index"
+  
   namespace :admin do
     resources :users, only: [:index]
   end

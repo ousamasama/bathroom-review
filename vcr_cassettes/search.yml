@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/api/v1/bathrooms/?query=Launch%20Academy
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - localhost:3000
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"2c674d9d8fad90242f351b523d47469a"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0a1f70d6-ddae-4c2b-a89a-a6f353e313b7
+      X-Runtime:
+      - '0.245678'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"status":"SUCCESS","message":"Loaded bathrooms","bathrooms":[{"id":7,"address":"4-1/2
+        Winter St","city":"Boston","state":"MA","zip":"02108","establishment":"Starbucks","gender":"Unisex","key_needed":false,"toilet_quantity":1,"created_at":"2017-10-25T15:16:25.972Z","updated_at":"2017-10-25T15:16:25.972Z","user_id":23,"lat":42.355482,"lng":-71.0608386},{"id":8,"address":"700
+        Atlantic Ave","city":"Boston","state":"MA","zip":"02111","establishment":"South
+        Station","gender":"Both","key_needed":false,"toilet_quantity":1,"created_at":"2017-10-25T15:16:53.834Z","updated_at":"2017-10-25T15:16:53.834Z","user_id":23,"lat":42.351854,"lng":-71.0551404}]}'
+    http_version: 
+  recorded_at: Wed, 25 Oct 2017 15:17:57 GMT
+recorded_with: VCR 3.0.3

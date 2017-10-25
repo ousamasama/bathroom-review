@@ -6,8 +6,7 @@ module Api
       def index
         location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:query])
         if location.success
-          bathrooms = Bathroom.by_distance(:origin => location)
-
+          bathrooms = Bathroom.by_distance(origin: location)
           render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
           puts bathrooms
         else
