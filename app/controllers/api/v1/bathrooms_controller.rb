@@ -39,7 +39,7 @@ module Api
         bathroom.lat = location.lat
         bathroom.lng = location.lng
         if bathroom.save
-          render json: { status: 'SUCCESS', bathrooms: bathroom }, status: :ok
+          render json: { status: 'SUCCESS', bathrooms: bathroom }, status: :created
         else
           head :unprocessable_entity
         end
