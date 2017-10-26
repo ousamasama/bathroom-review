@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-20.times do |n|
+50.times do |n|
   User.create!({
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     city: Faker::Address.city,
-    state: Faker::Address.state,
+    state: Faker::Pokemon.location,
     encrypted_password: Faker::Internet.password,
-    username: Faker::Name.name,
+    username: Faker::DragonBall.character,
     role: "member"
   })
 end
@@ -345,6 +345,15 @@ Review.create(
   rating: 2,
   body: "it was okay"
 )
+
+200.times do |n|
+  Review.create!({
+    user_id: Faker::Number.between(1, 50),
+    bathroom_id: Faker::Number.between(1, 17),
+    rating: Faker::Number.between(1, 3),
+    body: Faker::Simpsons.quote
+  })
+end
 
 # 2.times do |b|
 #   Bathroom.create({
