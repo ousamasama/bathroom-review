@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Squada+One');
+
 .fa-thumbs-up.selected {
   color: #158e00;
 }
 
 .fa-thumbs-down.selected {
   color: #9e0000;
+}
+
+.highlight {
+  background-color: #534B62;
+}
+
+.highlight:hover {
+  background-color: #655C77;
+}
+
+.highlight:selected {
+  background-color: #534B62;
 }
 
 .input-group-rounded {
@@ -24,6 +38,14 @@
   font-size: 0.8rem;
 }
 
+.button {
+  border-radius: 5000px;
+}
+
+#new-bathroom-form {
+  padding-top: 30px;
+}
+
 .add-bathroom-form {
   max-width: 900px;
   margin: auto;
@@ -37,10 +59,14 @@
 }
 
 .bathroom-tile {
-  margin: 20px auto;
+  margin: 40px auto;
   text-align: center;
   background-color: AliceBlue;
   padding: 30px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  border-radius: 50px;
 }
 
 .bathroom-info-div {
@@ -72,9 +98,26 @@
   color: black;
 }
 
-#app {
-  background: #fefefe no-repeat fixed center;
+.top-bar {
+  background: none;
+}
+
+.top-bar .menu {
+  background: none;
+  font-size: 1.3rem;
+  font-family: 'Squada One', sans-serif;
+}
+
+.menu-text {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1504417900752-5e508cb87268?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D') no-repeat fixed center;
   background-size: cover;
+  background-position: center top;
 }
 
 .notice {

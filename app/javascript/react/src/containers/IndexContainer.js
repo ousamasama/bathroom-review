@@ -79,7 +79,7 @@ class IndexContainer extends Component {
           <div className="bathroom-tiles">
             {bathrooms}
           </div>
-          <div id="new-bathroom-form">
+          <div id="new-bathroom-form" className="text-center">
             {this.state.button && <BathroomShowFormButton handleShowForm={this.handleShowForm} />}
             {this.state.form && <BathroomForm />}
           </div>
