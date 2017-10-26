@@ -9,6 +9,7 @@ const BathroomTile = props => {
           <h3>{props.bathroom.establishment}</h3>
           <h4>{props.bathroom.address}</h4>
           <h4>Rating: {props.bathroom.review_average}</h4>
+          <h4>Total Reviews: {props.bathroom.review_total}</h4>
           <h4>Distance: {props.bathroom.distance} miles</h4>
         </Link>
       </div>
@@ -19,6 +20,7 @@ const BathroomTile = props => {
         <Link to={`/bathrooms/${props.bathroom.id}`}>
           <h3>{props.bathroom.establishment}</h3>
           <h4>Rating: {props.bathroom.review_average}</h4>
+          <h4>Total Reviews: {props.bathroom.review_total}</h4>
           <h4>{props.bathroom.address}</h4>
         </Link>
       </div>

@@ -25,21 +25,53 @@ module Api
               establishment: bathroom.establishment,
               address: bathroom.address,
               distance: distance,
-              review_average: review_average
+              review_average: review_average,
+              review_total: review_total
             }
             bathroomsJSON << bathroom_item
           end
           render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroomsJSON }, status: :ok
           puts bathrooms
         else
+          bathroomsJSON = []
           bathrooms = Bathroom.all
-          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
+          bathrooms.each do |bathroom|
+            review_total = 0
+            bathroom.reviews.each do |review|
+              review_total += review.rating
+            end
+            review_average = 0
+            if bathroom.reviews.count != 0
+              review_average = review_total / bathroom.reviews.count
+            end
+
+            bathroom_item = {
+              id: bathroom.id,
+              establishment: bathroom.establishment,
+              address: bathroom.address,
+              review_average: review_average,
+              review_total: review_total
+            }
+
+            bathroomsJSON << bathroom_item
+          end
+          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroomsJSON }, status: :ok
         end
       end
 
       def show
         bathroom = Bathroom.find(params[:id])
         reviews = Review.where(bathroom: params[:id])
+        total_ratings = 0
+        reviews.each do |review|
+          total_ratings += review.rating
+        end
+
+        if bathroom.reviews.count != 0
+          average = total_ratings.to_f / bathroom.reviews.count.to_f
+          rounded_average = average.round(2)
+        end
+
         parsed_reviews = reviews.map do |review|
           user = User.find(review.user_id)
 
@@ -51,7 +83,7 @@ module Api
           }
 
         end
-        render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroom, reviews: parsed_reviews }, status: :ok
+        render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroom, reviews: parsed_reviews, review_average: rounded_average }, status: :ok
       end
 
       def create

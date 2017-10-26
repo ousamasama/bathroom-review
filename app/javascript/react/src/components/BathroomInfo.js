@@ -11,16 +11,15 @@ const BathroomInfo = props => {
     }
   }
 
-
-
-
   return(
     <div>
       <h1>{props.bathroomInfo.establishment}</h1>
       <ul>
+        <h4>Address: </h4>
         <p>{props.bathroomInfo.address}</p>
         <p>{props.bathroomInfo.city}, {props.bathroomInfo.state} {props.bathroomInfo.zip}</p>
-        <p>{props.bathroomInfo.gender}</p>
+        <p>Gender: {props.bathroomInfo.gender}</p>
+        <h4>This bathroom has an average rating of {props.rating}</h4>
       </ul>
       {deleteDiv()}
     </div>
