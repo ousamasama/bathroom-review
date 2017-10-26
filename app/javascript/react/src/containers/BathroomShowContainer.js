@@ -95,7 +95,7 @@ class BathroomShowContainer extends Component {
       })
     }
 
-    if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
+    if (this.state.bathroomInfo.user_id == this.state.user.id || this.state.user.role == "admin") {
       return(
         <div>
           <BathroomInfo
@@ -110,15 +110,22 @@ class BathroomShowContainer extends Component {
           {parsed_reviews}
         </div>
       )
+    } else if (this.state.user.id) {
+      <div>
+        <BathroomInfo
+          bathroomInfo={this.state.bathroomInfo}
+        />
+        <ReviewFormContainer
+          bathroomInfo={this.state.bathroomInfo}
+          addReview={this.addNewReview}
+        />
+        {parsed_reviews}
+      </div>
     } else {
       return(
         <div>
           <BathroomInfo
             bathroomInfo={this.state.bathroomInfo}
-          />
-          <ReviewFormContainer
-            bathroomInfo={this.state.bathroomInfo}
-            addReview={this.addNewReview}
           />
           {parsed_reviews}
         </div>
