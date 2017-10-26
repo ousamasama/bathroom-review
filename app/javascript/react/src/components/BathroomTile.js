@@ -3,10 +3,11 @@ import { Link } from 'react-router';
 
 const BathroomTile = props => {
   return(
-    <div>
-      <Link to={`/bathrooms/${props.bathroom.id}`}>
+    <div className="bathroom-tile">
       <h3>{props.bathroom.establishment}</h3>
-      <h4>{props.bathroom.address}</h4></Link>
+      <p className="tile-address">1.2 miles - {props.bathroom.address}</p>
+      <p className="tile-rating">Rating</p>
+      <Link to={`/bathrooms/${props.bathroom.id}`}><div className="button secondary">See more</div></Link>
     </div>
   )
 }

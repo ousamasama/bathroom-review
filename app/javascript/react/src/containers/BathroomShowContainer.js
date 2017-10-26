@@ -97,7 +97,7 @@ class BathroomShowContainer extends Component {
 
     if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
       return(
-        <div>
+        <div className="grid-container">
           <BathroomInfo
             bathroomInfo={this.state.bathroomInfo}
             handleDelete={this.handleDelete}
@@ -112,7 +112,7 @@ class BathroomShowContainer extends Component {
       )
     } else {
       return(
-        <div>
+        <div className="grid-container">
           <BathroomInfo
             bathroomInfo={this.state.bathroomInfo}
           />

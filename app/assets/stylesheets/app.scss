@@ -5,3 +5,78 @@
 .fa-thumbs-down.selected {
   color: #9e0000;
 }
+
+.input-group-rounded {
+  display: flex;
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  padding-top: 3rem;
+}
+
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+}
+
+.add-bathroom-form {
+  max-width: 900px;
+  margin: auto;
+}
+
+.bathroom-tiles {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  display: block;
+}
+
+.bathroom-tile {
+  margin: 20px auto;
+  text-align: center;
+  background-color: AliceBlue;
+  padding: 30px;
+}
+
+.bathroom-info-div {
+  margin: 20px auto;
+  text-align: center;
+  background-color: AliceBlue;
+  padding: 30px;
+}
+
+.bathroom-tile h3 {
+  margin-bottom: 0rem;
+}
+
+.index-container {
+  margin-top: -15px;
+}
+
+.tile-address {
+  font-size: 0.8rem;
+  color: DarkGray;
+}
+
+.show-address {
+  font-size: 1rem;
+  color: DarkGray;
+}
+
+.tile-rating {
+  color: black;
+}
+
+#app {
+  background: #fefefe no-repeat fixed center;
+  background-size: cover;
+}
+
+.notice {
+  background-color: gray;
+}
