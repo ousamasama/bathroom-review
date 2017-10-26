@@ -28,7 +28,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lng: -71.057053,
+  lat: 42.363544
 )
 
 Review.create(
@@ -54,7 +56,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 10
+  toilet_quantity: 10,
+  lat: 42.351854,
+  lng: -71.055140
 )
 
 Bathroom.create(
@@ -66,7 +70,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.353530,
+  lng: -71.058131
 )
 
 Review.create(
@@ -92,7 +98,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 1
+  toilet_quantity: 1,
+  lat: 42.140959,
+  lng: -71.519590
 )
 
 Review.create(
@@ -103,7 +111,7 @@ Review.create(
 )
 
 Bathroom.create(
-  address: "8 Market St,",
+  address: "8 Market St",
   city: "Warren",
   state: "RI",
   zip: "02885",
@@ -111,7 +119,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 1
+  toilet_quantity: 1,
+  lat: 41.730929,
+  lng: -71.282435
 )
 
 Review.create(
@@ -137,7 +147,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.141433,
+  lng: -70.951640
 )
 
 Review.create(
@@ -162,7 +174,9 @@ Bathroom.create(
   establishment: "Starbucks",
   gender: "Unisex",
   key_needed: "true",
-  user_id: 1
+  user_id: 1,
+  lat: 42.352962,
+  lng: -71.057445
 )
 
 Bathroom.create(
@@ -174,7 +188,9 @@ Bathroom.create(
   gender: "Unisex",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 1
+  toilet_quantity: 1,
+  lat: 42.354091,
+  lng: -71.058993
 )
 
 Review.create(
@@ -200,7 +216,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.355501,
+  lng: -71.059898
 )
 
 Review.create(
@@ -219,7 +237,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 4
+  toilet_quantity: 4,
+  lat: 42.354020,
+  lng: -71.058873
 )
 
 Review.create(
@@ -238,7 +258,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 34.559258,
+  lng: -87.000446
 )
 
 Review.create(
@@ -257,7 +279,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 10
+  toilet_quantity: 10,
+  lat: 42.351633,
+  lng: -71.065295
 )
 
 Review.create(
@@ -275,7 +299,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.354417,
+  lng: -71.058666
 )
 
 Bathroom.create(
@@ -287,7 +313,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.341608,
+  lng: -71.087074
 )
 
 Bathroom.create(
@@ -299,7 +327,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "false",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 41.738423,
+  lng: -71.306545
 )
 
 Review.create(
@@ -317,7 +347,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.163366,
+  lng: -71.201673
 )
 
 Review.create(
@@ -336,7 +368,9 @@ Bathroom.create(
   gender: "Both",
   key_needed: "true",
   user_id: 1,
-  toilet_quantity: 2
+  toilet_quantity: 2,
+  lat: 42.153539,
+  lng: -71.204367
 )
 
 Review.create(
