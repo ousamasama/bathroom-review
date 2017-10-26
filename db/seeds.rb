@@ -14,7 +14,7 @@ require 'faker'
     city: Faker::Pokemon.location,
     state: Faker::Address.state,
     encrypted_password: Faker::Internet.password,
-    username: Faker::DragonBall.name,
+    username: Faker::DragonBall.character,
     role: "member"
   })
 end
