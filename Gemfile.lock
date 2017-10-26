@@ -300,6 +300,7 @@ DEPENDENCIES
   coveralls
   database_cleaner
   devise
+  dotenv
   dotenv-rails
   factory_girl_rails
   faker
