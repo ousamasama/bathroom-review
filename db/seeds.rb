@@ -7,16 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-User.create(
-  email: "test@test.com",
-  password: "tester",
-  city: "Boston",
-  state: "MA",
-  encrypted_password: "tester",
-  username: "tester",
-  role: "admin"
-)
-
 Bathroom.create(
   address: "61 Endicott St",
   city: "Norwood",
@@ -161,6 +151,18 @@ Bathroom.create(
 )
 
 Bathroom.create(
+  address: "58 Summer St",
+  city: "Boston",
+  state: "MA",
+  zip: "02110",
+  establishment: "Five Guys",
+  gender: "Both",
+  key_needed: "true",
+  user_id: 1,
+  toilet_quantity: 2
+)
+
+Bathroom.create(
   address: "44 Gainsborough St",
   city: "Boston",
   state: "MA",
@@ -171,6 +173,44 @@ Bathroom.create(
   user_id: 1,
   toilet_quantity: 2
 )
+
+Bathroom.create(
+  address: "242 County Rd",
+  city: "Barrington",
+  state: "RI",
+  zip: "02806",
+  establishment: "Shell",
+  gender: "Both",
+  key_needed: "false",
+  user_id: 1,
+  toilet_quantity: 2
+)
+
+Bathroom.create(
+  address: "1415 Boston Providence Hwy",
+  city: "Norwood",
+  state: "MA",
+  zip: "02062",
+  establishment: "Chipotle",
+  gender: "Both",
+  key_needed: "true",
+  user_id: 1,
+  toilet_quantity: 2
+)
+
+Bathroom.create(
+  address: "130 Providence Hwy",
+  city: "Walpole",
+  state: "MA",
+  zip: "02032",
+  establishment: "Panera Bread",
+  gender: "Both",
+  key_needed: "true",
+  user_id: 1,
+  toilet_quantity: 2
+)
+
+
 
 # 2.times do |b|
 #   Bathroom.create({
@@ -204,7 +244,7 @@ Bathroom.create(
     city: Faker::Address.city,
     state: Faker::Address.state,
     encrypted_password: Faker::Internet.password,
-    username: Faker::Internet.name,
+    username: Faker::Name.name,
     role: "member"
   })
 end
