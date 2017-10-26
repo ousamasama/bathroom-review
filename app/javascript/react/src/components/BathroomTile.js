@@ -9,7 +9,7 @@ const BathroomTile = props => {
         <p className="tile-address">{props.bathroom.distance} miles away</p>
         <p className="tile-address">{props.bathroom.address}</p>
         <p className="tile-rating">Rating: {props.bathroom.review_average}</p>
-        <p> className="tile-rating">Total Reviews: {props.bathroom.review_total}</p>
+        <p className="tile-rating">Total Reviews: {props.bathroom.review_total}</p>
         <Link to={`/bathrooms/${props.bathroom.id}`}><div className="button secondary">See more</div></Link>
       </div>
     )
@@ -19,7 +19,7 @@ const BathroomTile = props => {
         <h3>{props.bathroom.establishment}</h3>
         <p className="tile-address">{props.bathroom.address}</p>
         <p className="tile-rating">Rating: {props.bathroom.review_average}</p>
-        <p> className="tile-rating">Total Reviews: {props.bathroom.review_total}</p>
+        <p className="tile-rating">Total Reviews: {props.bathroom.review_total}</p>
         <Link to={`/bathrooms/${props.bathroom.id}`}><div className="button secondary">See more</div></Link>
       </div>
     )
