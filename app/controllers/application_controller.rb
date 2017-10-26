@@ -1,4 +1,7 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::Base  
+
+  protect_from_forgery with: :exception
+
   protect_from_forgery unless: -> { request.format.json? }
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -11,6 +14,20 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin
     unless user_signed_in? && current_user.admin?
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
+
+  def authenticate_bathroom_creator
+    bathroom = Bathroom.find(params[:id])
+    unless current_user.id == bathroom.id || current_user.admin?
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
+
+
+  def authenticate_review_creator
+    unless current_user.id == review.id || current_user.admin?
       render json: { error: "Not authorized" }, status: :unauthorized
     end
   end

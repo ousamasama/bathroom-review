@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'react-rails'
+gem 'geokit-rails'
+gem 'rb-readline', :require => false
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 gem 'font-awesome-sass'
@@ -41,6 +43,8 @@ gem 'webpacker'
 group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development, :test do
@@ -56,6 +60,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+  gem 'dotenv-rails'
+  gem 'dotenv'
 end
 
 group :development do

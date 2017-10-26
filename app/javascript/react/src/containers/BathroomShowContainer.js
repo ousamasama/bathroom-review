@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 import BathroomInfo from '../components/BathroomInfo'
@@ -14,6 +15,7 @@ class BathroomShowContainer extends Component {
       user: {}
     }
     this.addNewReview = this.addNewReview.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   addNewReview(formPayload) {
@@ -35,26 +37,40 @@ class BathroomShowContainer extends Component {
   }
 
   componentDidMount(){
-      let bathroomId = this.props.params.id
-      fetch(`/api/v1/bathrooms/${bathroomId}`)
-      .then(response => response.json())
-      .then(body => {
-        this.setState({
-          bathroomInfo: body.bathrooms,
-          reviewInfo: body.reviews
-         })
-      })
+    let bathroomId = this.props.params.id
+    fetch(`/api/v1/bathrooms/${bathroomId}`)
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        bathroomInfo: body.bathrooms,
+        reviewInfo: body.reviews
+       })
+    })
 
-      fetch(`/api/v1/users.json`, {
-        credentials: 'same-origin',
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({ user: body })
-      })
-    }
+    fetch(`/api/v1/users.json`, {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ user: body })
+    })
+  }
+
+  handleDelete(id) {
+    fetch(`/api/v1/bathrooms/${id}`, {
+      credentials: 'same-origin',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      method: 'delete'
+    }).then(response => {
+      this.props.router.push('/')
+    })
+  }
+
 
   render(){
     let reviews = this.state.reviewInfo;
@@ -79,20 +95,37 @@ class BathroomShowContainer extends Component {
       })
     }
 
-    return(
-      <div className="grid-container">
-        <BathroomInfo
-          bathroomInfo={this.state.bathroomInfo}
-        />
-        <ReviewFormContainer
-          bathroomInfo={this.state.bathroomInfo}
-          addReview={this.addNewReview}
-        />
-        {parsed_reviews}
-      </div>
-    )
+    if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
+      return(
+        <div className="grid-container">
+          <BathroomInfo
+            bathroomInfo={this.state.bathroomInfo}
+            handleDelete={this.handleDelete}
+            id={this.state.bathroomInfo.id}
+          />
+          <ReviewFormContainer
+            bathroomInfo={this.state.bathroomInfo}
+            addReview={this.addNewReview}
+          />
+          {parsed_reviews}
+        </div>
+      )
+    } else {
+      return(
+        <div className="grid-container">
+          <BathroomInfo
+            bathroomInfo={this.state.bathroomInfo}
+          />
+          <ReviewFormContainer
+            bathroomInfo={this.state.bathroomInfo}
+            addReview={this.addNewReview}
+          />
+          {parsed_reviews}
+        </div>
+      )
+    }
+    end
   }
-
 }
 
-export default BathroomShowContainer;
+export default withRouter(BathroomShowContainer);
