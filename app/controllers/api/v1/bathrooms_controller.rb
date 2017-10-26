@@ -2,6 +2,7 @@ module Api
   module V1
     class BathroomsController < ApplicationController
       skip_before_action :verify_authenticity_token, only: [:create]
+      before_action :authenticate_bathroom_creator, only: [:destroy]
 
       def index
         location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:query])
@@ -38,9 +39,19 @@ module Api
         bathroom.lat = location.lat
         bathroom.lng = location.lng
         if bathroom.save
-          head :created, location: api_v1_bathroom_url(bathroom)
+          render json: { status: 'SUCCESS', bathrooms: bathroom }, status: :created
         else
           head :unprocessable_entity
+        end
+      end
+
+      def destroy
+        bathroom = Bathroom.find(params[:id])
+
+        if bathroom.destroy
+          render json: { status: 'SUCCESS', message: 'Bathroom deleted.' }
+        else
+          render json: { status: 'FAILURE', message: "Bathroom not deleted." }
         end
       end
 

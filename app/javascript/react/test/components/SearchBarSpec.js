@@ -15,15 +15,15 @@ describe('SearchBar',() => {
     )
   })
   it('should render an A tag', () => {
-    expect(wrapper.find('a')).toHaveClassName('button large')
+    expect(wrapper.find('#submit')).toHaveClassName('button large')
   })
 
   it('should call handleClick when button is click', () => {
-    wrapper.find('a').simulate('click')
+    wrapper.find('#submit').simulate('click')
     expect(handleClick).toHaveBeenCalled()
   })
 
   it('should render an input tag', () => {
-    expect(wrapper.find('input')).toHaveValue('123 Fake St.')
+    expect(wrapper.find('#search-field')).toHaveValue('123 Fake St.')
   })
 })

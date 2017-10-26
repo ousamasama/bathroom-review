@@ -45,7 +45,7 @@ feature 'nav_bar in layouts/application.html.erb' do
     expect(page).to have_content 'Welcome! You have signed up successfully.'
     expect(page).to_not have_content 'Sign In'
     expect(page).to have_content 'Sign Out'
-    expect(ActionMailer::Base.deliveries.count).to eq(1)
+    expect(ActionMailer::Base.deliveries.count).to eq(2)
   end
 
   scenario "user signs signs up with nothing" do

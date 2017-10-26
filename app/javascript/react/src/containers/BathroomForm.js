@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormField from '../components/FormField';
 import QuantitySelector from '../components/QuantitySelector';
+import { withRouter } from 'react-router'
 
 class BathroomForm extends Component {
   constructor(props) {
@@ -58,8 +59,10 @@ class BathroomForm extends Component {
             toilet_quantity: parseInt(this.state.toiletQuantity, 10)
           }
         })
-      })
-      this.clearForms();
+      }).then(response => response.json())
+        .then(response => {
+          this.props.router.push(`/bathrooms/${response.bathrooms.id}`)
+        })
     }
   }
 
@@ -172,4 +175,4 @@ class BathroomForm extends Component {
   }
 }
 
-export default BathroomForm;
+export default withRouter(BathroomForm);
