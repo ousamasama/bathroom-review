@@ -16,7 +16,10 @@ module Api
             bathroom.reviews.each do |review|
               review_total += review.rating
             end
-            review_average = review_total / bathoom.review.count
+            review_average = 0
+            if bathroom.reviews.count != 0
+              review_average = review_total / bathroom.reviews.count
+            end
             bathroom_item = {
               id: bathroom.id,
               establishment: bathroom.establishment,
