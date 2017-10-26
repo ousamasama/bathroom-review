@@ -3,13 +3,13 @@ import FormField from '../../src/components/FormField';
 import QuantitySelector from '../../src/components/QuantitySelector';
 
 describe('BathroomForm', () => {
-  let wrapper;
+  let wrapper,
+      handleChange;
 
   beforeEach(() => {
-
-    spyOn(BathroomForm.prototype, 'handleChange').and.callThrough();
+    spyOn(BathroomForm.WrappedComponent.prototype, 'handleChange').and.callThrough();
     wrapper = mount(
-      <BathroomForm
+      <BathroomForm.WrappedComponent
       />
     )
   });
@@ -29,7 +29,7 @@ describe('BathroomForm', () => {
   describe('handleChange', () => {
     it('should be invoked when the handleChange property of BathroomForm is called', () => {
       wrapper.find('#establishment').simulate('change', {target: { establishment: "McDonalds" }});
-      expect(BathroomForm.prototype.handleChange).toHaveBeenCalled();
+      expect(BathroomForm.WrappedComponent.prototype.handleChange).toHaveBeenCalled();
     });
     it('should be should change the state of address', () => {
       wrapper.find('#establishment').simulate('change', {target: { establishment: "McDonalds" }});
