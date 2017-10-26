@@ -2,7 +2,7 @@ import React from 'react';
 
 const FormField = props => {
   return(
-    <div>
+    <div className="cell">
       <input
         type={props.type}
         id={props.name}

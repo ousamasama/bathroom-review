@@ -56,6 +56,7 @@ class IndexContainer extends Component {
     let bathrooms;
     if (this.state.bathrooms.length !== 0) {
       bathrooms = this.state.bathrooms.map(bathroom => {
+
         return(
             <BathroomTile
               key={bathroom.id}
@@ -69,16 +70,16 @@ class IndexContainer extends Component {
     let form;
     if (this.state.user.id) {
       return(
-        <div className="row">
+        <div className="index-container">
           <SearchBar
             address={this.state.address}
             handlerFunction={this.handleFormChange}
             handleClick={this.handleClick}
           />
-          <div>
+          <div className="bathroom-tiles">
             {bathrooms}
           </div>
-          <div>
+          <div id="new-bathroom-form">
             {this.state.button && <BathroomShowFormButton handleShowForm={this.handleShowForm} />}
             {this.state.form && <BathroomForm />}
           </div>
@@ -86,13 +87,13 @@ class IndexContainer extends Component {
       )
     } else {
       return(
-        <div className="row column">
+        <div  className="index-container">
           <SearchBar
             address={this.state.address}
             handlerFunction={this.handleFormChange}
             handleClick={this.handleClick}
           />
-          <div>
+          <div className="bathroom-tiles">
             {bathrooms}
           </div>
         </div>

@@ -7,6 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+50.times do |n|
+  User.create!({
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    city: Faker::Pokemon.location,
+    state: Faker::Address.state,
+    encrypted_password: Faker::Internet.password,
+    username: Faker::DragonBall.character,
+    role: "member"
+  })
+end
+
 Bathroom.create(
   address: "61 Endicott St",
   city: "Norwood",
@@ -17,6 +29,20 @@ Bathroom.create(
   key_needed: "false",
   user_id: 1,
   toilet_quantity: 2
+)
+
+Review.create(
+  user_id: 1,
+  bathroom_id: 1,
+  rating: 1,
+  body: "I couldn't find the light switch, so I went in the dark."
+)
+
+Review.create(
+  user_id: 3,
+  bathroom_id: 1,
+  rating: 2,
+  body: "It's on the first floor of the building."
 )
 
 Bathroom.create(
@@ -43,6 +69,20 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
+Review.create(
+  user_id: 2,
+  bathroom_id: 3,
+  rating: 3,
+  body: "Worth the wait."
+)
+
+Review.create(
+  user_id: 4,
+  bathroom_id: 3,
+  rating: 2,
+  body: "Don't forget to get buzzed in."
+)
+
 Bathroom.create(
   address: "160 Main St",
   city: "Milford",
@@ -53,6 +93,13 @@ Bathroom.create(
   key_needed: "false",
   user_id: 1,
   toilet_quantity: 1
+)
+
+Review.create(
+  user_id: 5,
+  bathroom_id: 4,
+  rating: 2,
+  body: "Dirty but fine."
 )
 
 Bathroom.create(
@@ -67,6 +114,20 @@ Bathroom.create(
   toilet_quantity: 1
 )
 
+Review.create(
+  user_id: 6,
+  bathroom_id: 5,
+  rating: 1,
+  body: "idk if this is worth the trouble"
+)
+
+Review.create(
+  user_id: 7,
+  bathroom_id: 5,
+  rating: 1,
+  body: "kinda scary"
+)
+
 Bathroom.create(
   address: "1423 Bedford St",
   city: "Abington",
@@ -77,6 +138,20 @@ Bathroom.create(
   key_needed: "false",
   user_id: 1,
   toilet_quantity: 2
+)
+
+Review.create(
+  user_id: 8,
+  bathroom_id: 6,
+  rating: 2,
+  body: "decent"
+)
+
+Review.create(
+  user_id: 9,
+  bathroom_id: 6,
+  rating: 3,
+  body: "pretty good"
 )
 
 Bathroom.create(
@@ -102,6 +177,20 @@ Bathroom.create(
   toilet_quantity: 1
 )
 
+Review.create(
+  user_id: 10,
+  bathroom_id: 8,
+  rating: 1,
+  body: "watch your steps because the tiles are coming off"
+)
+
+Review.create(
+  user_id: 11,
+  bathroom_id: 8,
+  rating: 1,
+  body: "I asked to get buzzed in but somebody stole it from me"
+)
+
 Bathroom.create(
   address: "10 Summer St",
   city: "Boston",
@@ -112,6 +201,13 @@ Bathroom.create(
   key_needed: "true",
   user_id: 1,
   toilet_quantity: 2
+)
+
+Review.create(
+  user_id: 12,
+  bathroom_id: 9,
+  rating: 3,
+  body: "The best bathroom I've ever been in."
 )
 
 Bathroom.create(
@@ -126,6 +222,13 @@ Bathroom.create(
   toilet_quantity: 4
 )
 
+Review.create(
+  user_id: 13,
+  bathroom_id: 10,
+  rating: 1,
+  body: "There's always somebody pooping."
+)
+
 Bathroom.create(
   address: "902 Wimberly Drive SW",
   city: "Decatur",
@@ -138,6 +241,13 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
+Review.create(
+  user_id: 14,
+  bathroom_id: 11,
+  rating: 3,
+  body: "Always clean!"
+)
+
 Bathroom.create(
   address: "219 Tremont St",
   city: "Boston",
@@ -148,6 +258,12 @@ Bathroom.create(
   key_needed: "false",
   user_id: 1,
   toilet_quantity: 10
+)
+
+Review.create(
+  user_id: 15,
+  bathroom_id: 12,
+  rating: 3
 )
 
 Bathroom.create(
@@ -186,6 +302,12 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
+Review.create(
+  user_id: 16,
+  bathroom_id: 15,
+  rating: 2
+)
+
 Bathroom.create(
   address: "1415 Boston Providence Hwy",
   city: "Norwood",
@@ -196,6 +318,13 @@ Bathroom.create(
   key_needed: "true",
   user_id: 1,
   toilet_quantity: 2
+)
+
+Review.create(
+  user_id: 17,
+  bathroom_id: 16,
+  rating: 3,
+  body: "better than my food"
 )
 
 Bathroom.create(
@@ -210,7 +339,21 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
+Review.create(
+  user_id: 18,
+  bathroom_id: 17,
+  rating: 2,
+  body: "it was okay"
+)
 
+200.times do |n|
+  Review.create!({
+    user_id: Faker::Number.between(1, 50),
+    bathroom_id: Faker::Number.between(1, 17),
+    rating: Faker::Number.between(1, 3),
+    body: Faker::Simpsons.quote
+  })
+end
 
 # 2.times do |b|
 #   Bathroom.create({
@@ -236,15 +379,3 @@ Bathroom.create(
 #     user_id: 2
 #     })
 #   end
-
-20.times do |n|
-  User.create!({
-    email: Faker::Internet.email,
-    password: Faker::Internet.password,
-    city: Faker::Address.city,
-    state: Faker::Address.state,
-    encrypted_password: Faker::Internet.password,
-    username: Faker::Name.name,
-    role: "member"
-  })
-end
