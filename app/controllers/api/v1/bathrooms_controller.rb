@@ -7,8 +7,26 @@ module Api
       def index
         location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:query])
         if location.success
+          bathroomsJSON = []
           bathrooms = Bathroom.by_distance(origin: location)
-          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathrooms }, status: :ok
+          bathrooms.each do |bathroom|
+            distance = bathroom.distance_to(location)
+            distance = distance.round(1)
+            review_total = 0
+            bathroom.reviews.each do |review|
+              review_total += review.rating
+            end
+            review_average = review_total / bathoom.review.count
+            bathroom_item = {
+              id: bathroom.id,
+              establishment: bathroom.establishment,
+              address: bathroom.address,
+              distance: distance,
+              review_average: review_average
+            }
+            bathroomsJSON << bathroom_item
+          end
+          render json: { status: 'SUCCESS', message: 'Loaded bathrooms', bathrooms: bathroomsJSON }, status: :ok
           puts bathrooms
         else
           bathrooms = Bathroom.all

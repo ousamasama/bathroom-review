@@ -95,7 +95,7 @@ class BathroomShowContainer extends Component {
       })
     }
 
-    if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
+    if (this.state.bathroomInfo.user_id == this.state.user.id || this.state.user.role == "admin") {
       return(
         <div>
           <BathroomInfo
