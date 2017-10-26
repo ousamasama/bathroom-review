@@ -34,6 +34,7 @@ gem 'rb-readline', :require => false
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64'
 gem 'font-awesome-sass'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
