@@ -11,10 +11,10 @@ require 'faker'
   User.create!({
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    city: Faker::Address.city,
+    city: Faker::Pokemon.location,
     state: Faker::Address.state,
     encrypted_password: Faker::Internet.password,
-    username: Faker::Name.name,
+    username: Faker::DragonBall.character,
     role: "member"
   })
 end
