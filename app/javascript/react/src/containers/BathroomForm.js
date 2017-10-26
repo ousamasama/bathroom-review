@@ -113,64 +113,84 @@ class BathroomForm extends Component {
     let number = 10
 
     return(
-      <form id='add-bathroom-form'>
-        <h3>Add New Bathroom:</h3>
-        {errorDiv}
-        <FormField
-          type='text'
-          name='establishment'
-          label='Establishment Name'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.establishment}
-        />
-        <FormField
-          type='text'
-          name='address'
-          label='Address'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.address}
-        />
-        <FormField
-          type='text'
-          name='city'
-          label='City'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.city}
-        />
-        <FormField
-          type='text'
-          name='state'
-          label='State'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.state}
-        />
-        <FormField
-          type='text'
-          name='zip'
-          label='Zip'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.zip}
-        />
-        <FormField
-          type='text'
-          name='gender'
-          label='Gender'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.gender}
-        />
-        <QuantitySelector
-          name="toiletQuantity"
-          label="Toilet Quantity:"
-          number={number}
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.toiletQuantity}
-        />
-        <label>
-          Key Needed?
-          <input id="keyNeeded" onChange={this.handleKeyNeededChange} type="checkbox" checked={this.state.keyNeeded} name="keyNeeded"/>
-        </label>
-        <input type="submit" id="bathroom-submit" className="button" value="Add Bathroom" onClick={this.handleSubmit}/>
-      </form>
+      <div className="add-bathroom-form">
+        <form id='add-bathroom-form'>
+          <h3>Add New Bathroom:</h3>
+          {errorDiv}
+          <div className="grid-x">
+            <FormField
+              type='text'
+              name='establishment'
+              label='Establishment Name'
+              formFieldChange={this.handleChange}
+              fieldContent={this.state.establishment}
+            />
+          </div>
+          <div className="grid-x">
+            <FormField
+              type='text'
+              name='address'
+              label='Address'
+              formFieldChange={this.handleChange}
+              fieldContent={this.state.address}
+            />
+          </div>
+          <div className="grid-x">
+            <div className="small-5 cell">
+              <FormField
+                type='text'
+                name='city'
+                label='City'
+                formFieldChange={this.handleChange}
+                fieldContent={this.state.city}
+              />
+            </div>
+            <div className="small-5 cell">
+              <FormField
+            type='text'
+            name='state'
+            label='State'
+            formFieldChange={this.handleChange}
+            fieldContent={this.state.state}
+              />
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="small-2 cell">
+              <FormField
+                type='text'
+                name='zip'
+                label='Zip'
+                formFieldChange={this.handleChange}
+                fieldContent={this.state.zip}
+              />
+            </div>
+            <div className="small-2 cell">
+              <FormField
+                type='text'
+                name='gender'
+                label='Gender'
+                formFieldChange={this.handleChange}
+                fieldContent={this.state.gender}
+              />
+            </div>
+            <div className="small-2 cell">
+              <QuantitySelector
+                name="toiletQuantity"
+                label="Toilet Quantity:"
+                number={number}
+                formFieldChange={this.handleChange}
+                fieldContent={this.state.toiletQuantity}
+              />
+            </div>
+          </div>
+          <label>
+            Key Needed?
+            <input id="keyNeeded" onChange={this.handleKeyNeededChange} type="checkbox" checked={this.state.keyNeeded} name="keyNeeded"/>
+          </label>
+          <input type="submit" id="bathroom-submit" className="button" value="Add Bathroom" onClick={this.handleSubmit}/>
+        </form>
+      </div>
     )
   }
 }

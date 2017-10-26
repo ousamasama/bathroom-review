@@ -12,7 +12,7 @@ const BathroomInfo = props => {
   }
 
   return(
-    <div>
+    <div className="bathroom-info-div">
       <h1>{props.bathroomInfo.establishment}</h1>
       <ul>
         <h4>Address: </h4>
