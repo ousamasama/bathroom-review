@@ -61,6 +61,7 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'dotenv'
 end
 
 group :development do
