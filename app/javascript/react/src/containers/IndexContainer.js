@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BathroomTile from '../components/BathroomTile'
 import SearchBar from '../components/SearchBar'
 import BathroomForm from './BathroomForm'
+import BathroomShowFormButton from '../components/BathroomShowFormButton'
 
 class IndexContainer extends Component {
   constructor(props) {
@@ -9,10 +10,13 @@ class IndexContainer extends Component {
     this.state = {
       address: '',
       bathrooms: [],
-      user: {}
+      user: {},
+      button: true,
+      form: false
     }
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleShowForm = this.handleShowForm.bind(this)
   }
 
   componentDidMount() {
@@ -42,8 +46,10 @@ class IndexContainer extends Component {
 
   handleShowForm(event) {
     event.preventDefault();
-    let form = document.getElementById("new-bathroom-form")
-
+    this.setState({
+      button: false,
+      form: true
+    })
   }
 
   render() {
@@ -60,19 +66,38 @@ class IndexContainer extends Component {
       )
     }
 
-    return(
-      <div>
-        <SearchBar
-          address={this.state.address}
-          handlerFunction={this.handleFormChange}
-          handleClick={this.handleClick}
-        />
-        {bathrooms}
-        <div id="new-bathroom-form" className="hidden">
-          <BathroomForm/>
+    let form;
+    if (this.state.user.id) {
+      return(
+        <div className="row">
+          <SearchBar
+            address={this.state.address}
+            handlerFunction={this.handleFormChange}
+            handleClick={this.handleClick}
+          />
+          <div>
+            {bathrooms}
+          </div>
+          <div>
+            {this.state.button && <BathroomShowFormButton handleShowForm={this.handleShowForm} />}
+            {this.state.form && <BathroomForm />}
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return(
+        <div className="row column">
+          <SearchBar
+            address={this.state.address}
+            handlerFunction={this.handleFormChange}
+            handleClick={this.handleClick}
+          />
+          <div>
+            {bathrooms}
+          </div>
+        </div>
+      )
+    }
   }
 }
 

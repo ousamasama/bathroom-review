@@ -172,9 +172,6 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
-
-
-
 # 2.times do |b|
 #   Bathroom.create({
 #     address: Faker::Address.street_address,
