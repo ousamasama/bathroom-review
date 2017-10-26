@@ -61,6 +61,7 @@ class IndexContainer extends Component {
             <BathroomTile
               key={bathroom.id}
               bathroom={bathroom}
+              searchAddress={this.state.address}
             />
           )
         }

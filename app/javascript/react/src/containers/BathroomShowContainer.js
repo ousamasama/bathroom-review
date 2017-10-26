@@ -12,7 +12,8 @@ class BathroomShowContainer extends Component {
     this.state = {
       bathroomInfo: {},
       reviewInfo: [],
-      user: {}
+      user: {},
+      rating: null
     }
     this.addNewReview = this.addNewReview.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -41,9 +42,11 @@ class BathroomShowContainer extends Component {
     fetch(`/api/v1/bathrooms/${bathroomId}`)
     .then(response => response.json())
     .then(body => {
+
       this.setState({
         bathroomInfo: body.bathrooms,
-        reviewInfo: body.reviews
+        reviewInfo: body.reviews,
+        rating: body.review_average
        })
     })
 
@@ -95,10 +98,11 @@ class BathroomShowContainer extends Component {
       })
     }
 
-    if (this.state.bathroomInfo.id == this.state.user.id || this.state.user.role == "admin") {
+    if (this.state.bathroomInfo.user_id == this.state.user.id || this.state.user.role == "admin") {
       return(
         <div className="grid-container">
           <BathroomInfo
+            rating={this.state.rating}
             bathroomInfo={this.state.bathroomInfo}
             handleDelete={this.handleDelete}
             id={this.state.bathroomInfo.id}
@@ -114,6 +118,7 @@ class BathroomShowContainer extends Component {
       return(
         <div className="grid-container">
           <BathroomInfo
+            rating={this.state.rating}
             bathroomInfo={this.state.bathroomInfo}
           />
           <ReviewFormContainer
