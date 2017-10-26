@@ -148,6 +148,32 @@ Bathroom.create(
   toilet_quantity: 2
 )
 
+Bathroom.create(
+  address: "219 Tremont St",
+  city: "Boston",
+  state: "MA",
+  zip: "02116",
+  establishment: "Emerson Cutler Majestic Theatre",
+  gender: "Both",
+  key_needed: "false",
+  user_id: 1,
+  toilet_quantity: 10
+)
+
+Bathroom.create(
+  address: "44 Gainsborough St",
+  city: "Boston",
+  state: "MA",
+  zip: "02115",
+  establishment: "Pavement Coffeehouse",
+  gender: "Both",
+  key_needed: "false",
+  user_id: 1,
+  toilet_quantity: 2
+)
+
+
+
 
 # 2.times do |b|
 #   Bathroom.create({
