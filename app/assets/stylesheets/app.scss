@@ -46,6 +46,24 @@
   padding-top: 30px;
 }
 
+.account-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
+.registration-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
+.signin-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
 .add-bathroom-form {
   max-width: 900px;
   margin: auto;
@@ -153,7 +171,8 @@ body {
 }
 
 .notice {
-  background-color: gray;
+  background-color: #A499B3;
+  text-align: center;
 }
 
 .callout {
@@ -173,10 +192,16 @@ body {
   background-color: white;
 }
 
+
 .privy {
   color: #42aaf4;
 }
 
 a {
   color: #42aaf4;
+}
+
+.poop {
+  width: 2em;
+  height: 2em;
 }
