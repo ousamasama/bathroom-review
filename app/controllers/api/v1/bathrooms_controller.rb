@@ -24,6 +24,8 @@ module Api
               id: bathroom.id,
               establishment: bathroom.establishment,
               address: bathroom.address,
+              city: bathroom.city,
+              state: bathroom.state,
               distance: distance,
               review_average: review_average,
               review_total: review_total

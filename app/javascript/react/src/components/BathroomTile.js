@@ -25,7 +25,7 @@ const BathroomTile = props => {
 
         <p className="tile-address">
           <a href={"https://www.google.com/maps/dir//" + props.bathroom.address} target="_blank">
-            {props.bathroom.address}
+            {props.bathroom.address} - {props.bathroom.city}, {props.bathroom.state}
           </a>
         </p>
         <p>{ratingsImages}</p>
