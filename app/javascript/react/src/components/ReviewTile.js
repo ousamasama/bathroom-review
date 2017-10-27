@@ -11,16 +11,19 @@ const ReviewTile = props => {
   }
 
   return(
-    <div>
+    <div className="callout">
       <img src={props.profilePhoto} className="profile-thumbnail"/>
       <h3>{firstLine}</h3>
+      <h4>Rating: {props.rating}</h4>
+      <div className="callout inner">
+        <p>{props.body}</p>
+      </div>
+      <p>Rate this review</p>
       <UpvoteDownvote
         currentUser={props.currentUser}
         votes={props.votes}
         review={props.id}
-      />
-      <p className="review-rating"><strong>{props.rating}</strong></p>
-      <p className="review-body">{props.body}</p>
+        />
     </div>
   )
 }

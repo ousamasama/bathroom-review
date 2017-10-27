@@ -15,7 +15,6 @@ const BathroomInfo = props => {
     <div className="bathroom-info-div">
       <h1>{props.bathroomInfo.establishment}</h1>
       <ul>
-        <h4>Address: </h4>
         <p>{props.bathroomInfo.address}</p>
         <p>{props.bathroomInfo.city}, {props.bathroomInfo.state} {props.bathroomInfo.zip}</p>
         <p>Gender: {props.bathroomInfo.gender}</p>
