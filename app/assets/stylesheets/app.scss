@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:900|Fredoka+One|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:900|Fredoka+One|Open+Sans:400,600');
 
 .fa-thumbs-up.selected {
   color: #158e00;
@@ -16,7 +16,7 @@
   background-color: #655C77;
 }
 
-.highlight:selected {
+.highlight:focus {
   background-color: #534B62;
 }
 
@@ -53,10 +53,33 @@
 
 .bathroom-tiles {
   width: 80%;
-  max-width: 900px;
+  max-width: 600px;
   margin: auto;
   display: block;
 }
+
+.hero-text {
+  max-width: 600px;
+  text-align: left;
+  margin: auto;
+  font-size: 1.2rem;
+  padding: 0px 15px;
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: #1B1725;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+  }
+}
+
+.hed {
+  font-size: 3.2rem;
+}
+
 
 .bathroom-tile {
   margin: 40px auto;
@@ -93,8 +116,9 @@
 }
 
 .tile-address {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: DarkGray;
+  margin-bottom: 0;
 }
 
 .show-address {
@@ -147,4 +171,12 @@ body {
 
 .inner {
   background-color: white;
+}
+
+.privy {
+  color: #42aaf4;
+}
+
+a {
+  color: #42aaf4;
 }
