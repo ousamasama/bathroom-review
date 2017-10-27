@@ -43,26 +43,28 @@ class ReviewFormContainer extends Component {
   render(){
     let number = 3
     return(
-      <form id='add-review-form'>
-        <h3>Add New Review</h3>
-        <QuantitySelector
-          name='rating'
-          label='Rating'
-          number={number}
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.rating}
-        />
-        <FormField
-          className="text-area"
-          type='text'
-          name='body'
-          label='Review Body'
-          formFieldChange={this.handleChange}
-          fieldContent={this.state.body}
-        />
-        <span className="text-center"> <input type="submit" id="review-submit" className="button" value="Add Review" onClick={this.handleSubmit}/>
-        </span>
-      </form>
+      <div className="review-form">
+        <form id='add-review-form'>
+          <h3>Add New Review</h3>
+          <QuantitySelector
+            name='rating'
+            label='Rating'
+            number={number}
+            formFieldChange={this.handleChange}
+            fieldContent={this.state.rating}
+          />
+          <FormField
+            className="text-area"
+            type='text'
+            name='body'
+            label='Review Body'
+            formFieldChange={this.handleChange}
+            fieldContent={this.state.body}
+          />
+          <span className="text-center"> <input type="submit" id="review-submit" className="button" value="Add Review" onClick={this.handleSubmit}/>
+          </span>
+        </form>
+      </div>
     )
   }
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:900|Fredoka+One|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Playfair+Display:900|Fredoka+One|Open+Sans:400,600');
 
 .fa-thumbs-up.selected {
   color: #158e00;
@@ -16,7 +16,7 @@
   background-color: #655C77;
 }
 
-.highlight:selected {
+.highlight:focus {
   background-color: #534B62;
 }
 
@@ -54,6 +54,24 @@
   padding-top: 30px;
 }
 
+.account-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
+.registration-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
+.signin-page {
+  max-width: 900px;
+  margin: auto;
+  opacity: .8;
+}
+
 .add-bathroom-form {
   max-width: 900px;
   margin: auto;
@@ -61,10 +79,33 @@
 
 .bathroom-tiles {
   width: 80%;
-  max-width: 900px;
+  max-width: 600px;
   margin: auto;
   display: block;
 }
+
+.hero-text {
+  max-width: 600px;
+  text-align: left;
+  margin: auto;
+  font-size: 1.2rem;
+  padding: 0px 15px;
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: #1B1725;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+  }
+}
+
+.hed {
+  font-size: 3.2rem;
+}
+
 
 .bathroom-tile {
   margin: 40px auto;
@@ -104,8 +145,9 @@
 }
 
 .tile-address {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: DarkGray;
+  margin-bottom: 0;
 }
 
 .show-address {
@@ -133,6 +175,12 @@
   letter-spacing: 2px;
 }
 
+.review-form {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
 body {
   background: url('https://images.unsplash.com/photo-1504417900752-5e508cb87268?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D') no-repeat fixed center;
   background-size: cover;
@@ -140,7 +188,8 @@ body {
 }
 
 .notice {
-  background-color: gray;
+  background-color: #A499B3;
+  text-align: center;
 }
 
 .review-show {
@@ -193,4 +242,18 @@ body {
   -moz-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.65);
   box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.65);
   border-radius: 30px;
+}
+
+
+.privy {
+  color: #42aaf4;
+}
+
+a {
+  color: #42aaf4;
+}
+
+.poop {
+  width: 2em;
+  height: 2em;
 }
