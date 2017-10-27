@@ -69,7 +69,7 @@ module Api
 
         if bathroom.reviews.count != 0
           average = total_ratings.to_f / bathroom.reviews.count.to_f
-          rounded_average = average.round(2)
+          rounded_average = average.round(1)
         end
 
         parsed_reviews = reviews.map do |review|
