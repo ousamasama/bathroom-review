@@ -121,10 +121,6 @@ class BathroomShowContainer extends Component {
             rating={this.state.rating}
             bathroomInfo={this.state.bathroomInfo}
           />
-          <ReviewFormContainer
-            bathroomInfo={this.state.bathroomInfo}
-            addReview={this.addNewReview}
-          />
           {parsed_reviews}
         </div>
       )
