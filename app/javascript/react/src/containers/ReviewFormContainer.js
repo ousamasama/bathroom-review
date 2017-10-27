@@ -60,9 +60,8 @@ class ReviewFormContainer extends Component {
           formFieldChange={this.handleChange}
           fieldContent={this.state.body}
         />
-      <span className="text-center">    
-        <input type="submit" id="review-submit" className="button" value="Add Review" onClick={this.handleSubmit}/>
-      </span>
+        <span className="text-center"> <input type="submit" id="review-submit" className="button" value="Add Review" onClick={this.handleSubmit}/>
+        </span>
       </form>
     )
   }
