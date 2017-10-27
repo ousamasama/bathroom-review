@@ -114,6 +114,17 @@ class BathroomShowContainer extends Component {
           {parsed_reviews}
         </div>
       )
+    } else if (this.state.user.id) {
+      <div>
+        <BathroomInfo
+          bathroomInfo={this.state.bathroomInfo}
+        />
+        <ReviewFormContainer
+          bathroomInfo={this.state.bathroomInfo}
+          addReview={this.addNewReview}
+        />
+        {parsed_reviews}
+      </div>
     } else {
       return(
         <div className="review-show">
