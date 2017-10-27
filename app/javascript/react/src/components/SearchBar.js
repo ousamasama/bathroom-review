@@ -17,7 +17,7 @@ const SearchBar = props => {
             <div className="input-group-button">
                 <input
                   type="submit"
-                  className="button secondary"
+                  className="button highlight"
                   value="Search"
                 />
             </div>
