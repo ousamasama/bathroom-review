@@ -16,6 +16,7 @@ const ReviewTile = props => {
       <h3>{firstLine}</h3>
       <UpvoteDownvote
         currentUser={props.currentUser}
+        votes={props.votes}
         review={props.id}
       />
       <p className="review-rating"><strong>{props.rating}</strong></p>
