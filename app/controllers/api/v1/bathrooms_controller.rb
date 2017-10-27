@@ -26,7 +26,7 @@ module Api
               address: bathroom.address,
               distance: distance,
               review_average: review_average,
-              review_total: review_total
+              review_total: bathroom.reviews.count
             }
             bathroomsJSON << bathroom_item
           end
@@ -50,7 +50,7 @@ module Api
               establishment: bathroom.establishment,
               address: bathroom.address,
               review_average: review_average,
-              review_total: review_total
+              review_total: bathroom.reviews.count
             }
 
             bathroomsJSON << bathroom_item

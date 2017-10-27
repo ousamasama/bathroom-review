@@ -53,13 +53,16 @@ class ReviewFormContainer extends Component {
           fieldContent={this.state.rating}
         />
         <FormField
+          className="text-area"
           type='text'
           name='body'
           label='Review Body'
           formFieldChange={this.handleChange}
           fieldContent={this.state.body}
         />
+      <span className="text-center">    
         <input type="submit" id="review-submit" className="button" value="Add Review" onClick={this.handleSubmit}/>
+      </span>
       </form>
     )
   }

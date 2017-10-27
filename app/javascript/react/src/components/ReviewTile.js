@@ -11,14 +11,14 @@ const ReviewTile = props => {
   }
 
   return(
-    <div className="callout">
+    <div className="review-tile">
       <img src={props.profilePhoto} className="profile-thumbnail"/>
       <h3>{firstLine}</h3>
       <h4>Rating: {props.rating}</h4>
-      <div className="callout inner">
+      <div className="inner-text">
         <p>{props.body}</p>
       </div>
-      <p>Rate this review</p>
+      <p className="rate-text">Rate this review</p>
       <UpvoteDownvote
         currentUser={props.currentUser}
         votes={props.votes}
