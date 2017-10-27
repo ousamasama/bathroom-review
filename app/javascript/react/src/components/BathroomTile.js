@@ -22,7 +22,12 @@ const BathroomTile = props => {
       <div className="bathroom-tile">
         <h3>{props.bathroom.establishment}</h3>
         <p className="tile-address">{props.bathroom.distance} miles away</p>
-        <p className="tile-address">{props.bathroom.address}</p>
+
+        <p className="tile-address">
+          <a href={"https://www.google.com/maps/dir//" + props.bathroom.address} target="_blank">
+            {props.bathroom.address}
+          </a>
+        </p>
         <p>{ratingsImages}</p>
         <p className="tile-rating">Total Reviews: {props.bathroom.review_total}</p>
         <Link to={`/bathrooms/${props.bathroom.id}`}><div className="button secondary">See more</div></Link>

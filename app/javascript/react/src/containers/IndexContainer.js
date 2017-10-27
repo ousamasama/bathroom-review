@@ -72,6 +72,12 @@ class IndexContainer extends Component {
     if (this.state.user.id) {
       return(
         <div className="index-container">
+          <div className="hero-text">
+            <h1 className="hed">
+              When nature calls, there's <span className="privy">Privy.</span>
+            </h1>
+            <p>Enter your location below to find the nearest public bathroom.</p>
+          </div>
           <SearchBar
             address={this.state.address}
             handlerFunction={this.handleFormChange}
