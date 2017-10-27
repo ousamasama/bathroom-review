@@ -8,7 +8,7 @@ module Api
         location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:query])
         if location.success
           bathroomsJSON = []
-          bathrooms = Bathroom.by_distance(origin: location)
+          bathrooms = Bathroom.by_distance(origin: location).limit(5)
           bathrooms.each do |bathroom|
             distance = bathroom.distance_to(location)
             distance = distance.round(1)
@@ -34,7 +34,7 @@ module Api
           puts bathrooms
         else
           bathroomsJSON = []
-          bathrooms = Bathroom.all
+          bathrooms = Bathroom.all.limit(5)
           bathrooms.each do |bathroom|
             review_total = 0
             bathroom.reviews.each do |review|
