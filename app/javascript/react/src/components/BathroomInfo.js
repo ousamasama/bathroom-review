@@ -26,14 +26,13 @@ const BathroomInfo = props => {
   }
 
   return(
-    <div className="bathroom-info-div">
+    <div className="bathroom-show-info">
       <h1>{props.bathroomInfo.establishment}</h1>
       <ul>
         <a href={`https://www.google.com/maps/place/${props.bathroomInfo.address}+${props.bathroomInfo.city}+${props.bathroomInfo.state}+${props.bathroomInfo.zip}/`} target="_blank">
           <p>{props.bathroomInfo.address}</p>
           <p>{props.bathroomInfo.city}, {props.bathroomInfo.state} {props.bathroomInfo.zip}</p>
         </a>
-        <p>Gender: {props.bathroomInfo.gender}</p>
         <h4>{ratingsImages}</h4>
       </ul>
       {deleteDiv()}

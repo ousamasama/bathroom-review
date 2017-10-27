@@ -113,7 +113,7 @@ class BathroomForm extends Component {
     let number = 10
 
     return(
-      <div className="add-bathroom-form">
+      <div className="add-bathroom-form grid-x">
         <form id='add-bathroom-form'>
           <h3>Add New Bathroom:</h3>
           {errorDiv}
@@ -135,8 +135,7 @@ class BathroomForm extends Component {
               fieldContent={this.state.address}
             />
           </div>
-          <div className="grid-x">
-            <div className="small-5 cell">
+            <span className="grid-x">
               <FormField
                 type='text'
                 name='city'
@@ -144,19 +143,17 @@ class BathroomForm extends Component {
                 formFieldChange={this.handleChange}
                 fieldContent={this.state.city}
               />
-            </div>
-            <div className="small-5 cell">
+          </span>
+            <div className="grid-x">
               <FormField
-            type='text'
-            name='state'
-            label='State'
-            formFieldChange={this.handleChange}
-            fieldContent={this.state.state}
+                type='text'
+                name='state'
+                label='State'
+                formFieldChange={this.handleChange}
+                fieldContent={this.state.state}
               />
             </div>
-          </div>
-          <div className="grid-x">
-            <div className="small-2 cell">
+            <div className="grid-x">
               <FormField
                 type='text'
                 name='zip'
@@ -165,7 +162,7 @@ class BathroomForm extends Component {
                 fieldContent={this.state.zip}
               />
             </div>
-            <div className="small-2 cell">
+            <div className="grid-x">
               <FormField
                 type='text'
                 name='gender'
@@ -174,7 +171,7 @@ class BathroomForm extends Component {
                 fieldContent={this.state.gender}
               />
             </div>
-            <div className="small-2 cell">
+            <div className="grid-x">
               <QuantitySelector
                 name="toiletQuantity"
                 label="Toilet Quantity:"
@@ -183,7 +180,6 @@ class BathroomForm extends Component {
                 fieldContent={this.state.toiletQuantity}
               />
             </div>
-          </div>
           <label>
             Key Needed?
             <input id="keyNeeded" onChange={this.handleKeyNeededChange} type="checkbox" checked={this.state.keyNeeded} name="keyNeeded"/>

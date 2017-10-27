@@ -40,7 +40,15 @@
 
 .button {
   border-radius: 5000px;
+  margin: auto;
 }
+
+.review {
+  border-radius: 5000px;
+  margin: auto;
+
+}
+// review submit ^^
 
 #new-bathroom-form {
   padding-top: 30px;
@@ -123,6 +131,9 @@
   text-align: center;
   background-color: AliceBlue;
   padding: 30px;
+  width: 80%;
+  max-width: 900px;
+  display: block;
 }
 
 .bathroom-tile h3 {
@@ -181,21 +192,56 @@ body {
   text-align: center;
 }
 
-.callout {
+.review-show {
   width: 80%;
   max-width: 900px;
-  margin: 20px auto;
-  text-align: center;
-  padding: 30px;
-  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.65);
-  -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.65);
-  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.65);
-  border-radius: 10px;
-  background-color: AliceBlue;
+  margin: auto;
+  display: block;
 }
 
-.inner {
+.bathroom-show-info {
+  margin: 40px auto;
+  text-align: center;
+  background-color: AliceBlue;
+  padding: 30px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  border-radius: 50px;
+}
+
+.review-tile {
+  margin: 40px auto;
+  text-align: center;
+  background-color: AliceBlue;
+  padding: 30px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.65);
+  border-radius: 50px;
+
+  p {
+    margin-top: 2rem;
+  }
+
+  .photo-thumbnail {
+    max-width: 20%;
+  }
+
+  .rate-text {
+    color: DarkGray;
+    font-weight: bold;
+  }
+}
+
+.inner-text {
   background-color: white;
+  padding: 30px;
+  text-align: center;
+  -webkit-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.65);
+  -moz-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.65);
+  box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.65);
+  border-radius: 30px;
 }
 
 
